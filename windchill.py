@@ -63,12 +63,21 @@ colormap = {
 	'NaN': '#bdbdbd',
 }
 
+source = ColumnDataSource(
+	data = dict(
+		twc=windchill_df.values
+		windspeed = windchill_df.columns
+		amb_temp = windchill_df.index
+		discrete= [windchill_to_discrete(twc) for twc in windchill_df.values]))
+
 output_file('windchill_table.html')
 
 p = figure(title='Windchill', tools='resize,hover,save', x_range=windspeed_range, y_range=amb_temp_range)
 p.plot_width = 1200
 p.toolbar_location = 'left'
+p.rec('group', 'period', 0.9, 0.9, source=source, fill_alpha=0.6, color='type_color')
+show(p)
 
-
+#Maybe change the format of the data frame
 
 
