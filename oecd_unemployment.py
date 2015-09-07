@@ -23,6 +23,7 @@ df['colours'] = [colours[min(int(rate) - 2, 8)] for rate in df['Value'].values]
 source = ColumnDataSource(df)
 
 output_file('oecd_unemployment.html')
+
 p = figure(title='OECD Unemployment (1990 - 2015)',
           tools='resize,hover,save', x_range=years, y_range=countries)
 p.rect(x='Time', y='Country', width=1, height=1, source=source,
