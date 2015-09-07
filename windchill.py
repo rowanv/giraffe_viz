@@ -56,11 +56,13 @@ windspeed_values = [at for w in windspeed for at in amb_temp]
 amb_temp_values = [w for w in windspeed for at in amb_temp]
 
 
-discrete_values = [windchill_to_discrete(x) for x in windchill_df['windchill']]
-colourmap_values = [colourmap[d] for d in discrete_values]
+
 
 
 windchill_df = pd.DataFrame(data=windchill_values, columns=['windchill'])
+discrete_values = [windchill_to_discrete(x) for x in windchill_df['windchill']]
+colourmap_values = [colourmap[d] for d in discrete_values]
+
 windchill_df['windspeed'] = windspeed_values
 windchill_df['amb_temp'] = amb_temp_values
 windchill_df['discrete'] = discrete_values
