@@ -2,6 +2,7 @@ from collections import OrderedDict
 
 from bokeh.plotting import figure, show, output_file
 from bokeh.models import HoverTool, ColumnDataSource, Range1d
+from bokeh.embed import components
 
 import pandas as pd
 
@@ -75,5 +76,12 @@ p.grid.grid_line_color = None
 p.axis.axis_line_color = None
 p.axis.major_tick_line_color = None
 p.axis.minor_tick_line_color = None
+
+script_file = open('oecd_unemployment_script.html', 'w+')
+div_file = open('oecd_unemployment_div.html', 'w+')
+
+script, div = components(p)
+print(script, file=script_file)
+print(div, file=div_file)
 
 show(p)
