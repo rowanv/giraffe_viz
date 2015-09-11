@@ -3,6 +3,7 @@ from collections import OrderedDict
 
 from bokeh.plotting import figure, show, output_file
 from bokeh.models import HoverTool, ColumnDataSource, Range1d
+from bokeh.embed import components
 import pandas as pd
 import numpy as np
 
@@ -93,7 +94,7 @@ output_file('windchill_table.html')
 p = figure(title='Windchill', tools='resize,hover,save', x_axis_label='Windspeed',
            y_axis_label='Ambient Temperature')
 p.toolbar_location = 'right'
-p.circle('windspeed', 'amb_temp', width=1.2, height=1.2,
+p.circle('windspeed', 'amb_temp',
          radius=0.5, source=source, fill_alpha=0.6, color='colourmap')
 p.x_range = Range1d(-32, 10)
 p.y_range = Range1d(0, 27)
@@ -112,5 +113,14 @@ p.yaxis.axis_label_text_font_size = '1em'
 p.title_text_font = 'palatino'
 p.xaxis.axis_label_text_font = 'palatino'
 p.yaxis.axis_label_text_font = 'palatino'
+
+script_file = open('windchill_script.html', 'w+')
+div_file = open('windchill_div.html', 'w+')
+
+script, div = components(p)
+print(script, file=script_file)
+print(div, file=div_file)
+
+
 show(p)
 
