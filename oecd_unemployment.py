@@ -10,8 +10,13 @@ import pandas as pd
 df = pd.read_csv('~/Google Drive/Datasets/OECD_Labour_Stats.csv')
 
 
-years = Range1d(1995, 2015)
-countries = list(set(df['Country'].values))
+years = Range1d(1994, 2015)
+countries = OrderedDict()
+for c in df['Country'].values:
+    countries[c] = True
+
+countries = [key for key, value in countries.items()]
+countries = countries[::-1] # reverse the list so the x axis goes in the right direction
 
 colours = [
     "#75968f", "#a5bab7", "#c9d9d3", "#e2e2e2", "#dfccce",
@@ -19,6 +24,30 @@ colours = [
 ]
 
 df['colours'] = [colours[min(int(rate) - 2, 8)] for rate in df['Value'].values]
+
+df = df[['Time', 'Country', 'colours', 'Value']]
+#709
+
+#limit to years after 1995
+df = df.ix[df['Time'] >= 1995,]
+
+#Adding NA values
+for country in countries:
+    country_df = df.ix[df['Country'] == country,]
+    if len(country_df) < 20:
+        for year in range(1995, 2015):
+            if year not in country_df.Time.values:
+                new_df = pd.DataFrame({'Time': year,
+                    'Country': country_df['Country'].iloc[0],
+                    'colours': '#fffff4',
+                    'Value': 'NaN'},
+                    index= [(df.index[-1] + 1)]
+                    )
+                print(new_df)
+                df = pd.concat([df, new_df])
+                print('Added values for ', country_df['Country'].iloc[0])
+    else:
+        print('Not missing values', country_df['Country'].iloc[0])
 
 source = ColumnDataSource(df)
 
