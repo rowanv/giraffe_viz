@@ -91,8 +91,8 @@ source = ColumnDataSource(windchill_df)
 
 output_file('windchill_table.html')
 
-p = figure(title='Windchill', tools='resize,hover,save', x_axis_label='Windspeed (m/s)',
-           y_axis_label='Ambient Temperature (\u00b0 C)')
+p = figure(title='Windchill', tools='resize,hover,save', x_axis_label='Ambient Temperature (\u00b0 C)',
+           y_axis_label='Windspeed (m/s)')
 p.toolbar_location = 'right'
 p.circle('windspeed', 'amb_temp',
          radius=0.5, source=source, fill_alpha=0.6, color='colourmap')
