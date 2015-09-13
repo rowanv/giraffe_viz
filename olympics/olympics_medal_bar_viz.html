@@ -15,19 +15,20 @@
 		  color: white;
 		}
 
-		.bar{
-			fill: steelblue;
-		}
-
-    .bar:hover {
-      fill: brown;
+    .bar-men {
+      fill: blue;
     }
+
 
 		.chart text {
 			fill: white;
 			font: 10px sans-serif;
 			text-anchor: end;
 		}
+
+    .d3-tip {
+      fill: orangered;
+    }
 
 		</style>
     </head>
@@ -44,7 +45,7 @@ var x = d3.scale.ordinal()
 var y = d3.scale.linear()
     .rangeRound([height, 0]);
 var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    .range(["#ffd93f", "#e5c494"]);
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom");
@@ -57,6 +58,7 @@ var svg = d3.select("body").append("svg")
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
 
 
 d3.csv('Year_and_Gender_Olympics_Dataset_All_Years.csv', function(data) {
@@ -72,31 +74,88 @@ d3.csv('Year_and_Gender_Olympics_Dataset_All_Years.csv', function(data) {
           x.domain(data.map(function(d) {return d.Year; }));
           y.domain([0, d3.max(data, function(d) { return d['Medal Count']; })])
 
-/* Axes */
+        /* Axis labels */
 
           svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Medal Count");
-    svg.selectAll('bar')
-    .data(data)
-    .enter().append('rect')
-    .style('fill', 'steelblue')
-    .attr('x', function(d) {return x(d.Year);})
-    .attr('width', x.rangeBand())
-    .attr('y', function(d) {return y(d['Medal Count']); })
-    .attr('height', function(d) {return height - y(d['Medal Count']); })
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+          .append('text')
+          .attr('x', width / 2)
+          .attr('y', margin.bottom)
+          .style('text-anchor', 'middle')
+          .text('Year');
 
-        });
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+          .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Medal Count");
+
+          svg.selectAll('.bar_men')
+
+          .data(data)
+          .enter().append('rect')
+          .attr('class', 'bar bar_men')
+          .style('fill', '#e5c494')
+          .attr('x', function(d) {return x(d.Year);})
+          .attr('width', x.rangeBand())
+          .filter(function(d) {return d.Gender=='Men';})
+          .attr('y', function(d) {return y(d['Medal Count']); })
+
+          .attr('height', function(d) {return height - y(d['Medal Count']); })
+
+          /* Create space between the two bars */
+          svg.selectAll('.bar')
+          .data(data)
+          .enter().append('rect')
+          .style('fill', '#ffffff')
+          .attr('x', function(d) {return x(d.Year);})
+          .attr('width', x.rangeBand())
+          .filter(function(d) {return d.Gender=='Women';})
+          .attr('y', function(d) {return y(d['Medal Count'] + 3); })
+
+          .attr('height', function(d) {return height - y(d['Medal Count']); })
+
+          /* women bars */
+          svg.selectAll('.bar_women')
+          .data(data)
+          .enter().append('rect')
+          .attr('class', 'bar bar_women')
+          .style('fill', '#ffd93f')
+          .attr('x', function(d) {return x(d.Year);})
+          .attr('width', x.rangeBand())
+          .filter(function(d) {return d.Gender=='Women';})
+          .attr('y', function(d) {return y(d['Medal Count']); })
+          .attr('height', function(d) {return height - y(d['Medal Count']); })
+          .on('mouseover', function(d) {
+            svg.selectAll('.bar_women').style('color', 'red');
+
+          var legend = svg.selectAll('.legend')
+          .data(color.domain().slice().reverse())
+          .enter().append('g')
+          .attr('class', 'legend')
+          .attr('transform', function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+            legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+
+
+          })
+
+
+
+
+
+              });
 
 
 
@@ -105,20 +164,6 @@ d3.csv('Year_and_Gender_Olympics_Dataset_All_Years.csv', function(data) {
 
 
 
-
-var year = svg.selectAll('.year')
-.data(data)
-.enter().append('g')
-.attr('class', 'g')
-.attr('transform', function(d) {return "translate(" + x(d['Year']) + ",0)"; });
-
-year.selectAll('.bar')
-.data(Object)
-.enter().append('svg:rect')
-.attr('x', function(d) {return x(d.Year); })
- .attr("y", function(d) { return -y(d.y0) - y(d.y); })
-      .attr("height", function(d) { return y(d.y); })
-      .attr("width", x.rangeBand());
 
 
 /*
