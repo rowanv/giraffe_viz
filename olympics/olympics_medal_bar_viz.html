@@ -48,7 +48,8 @@ var color = d3.scale.ordinal()
     .range(["#ffd93f", "#e5c494"]);
 var xAxis = d3.svg.axis()
     .scale(x)
-    .orient("bottom");
+    .orient("bottom")
+    .tickFormat(d3.time.format('%Y'));
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
@@ -59,13 +60,14 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+var format = d3.time.format('%Y');
 
 
 d3.csv('Year_and_Gender_Olympics_Dataset_All_Years.csv', function(data) {
 
 
           data.forEach(function(d) {
-            d.Year = +d.Year;
+            d.Year = format.parse(d.Year);
             d['Medal Count'] = +d['Medal Count'];
             color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Year"; }));
           })
