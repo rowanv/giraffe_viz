@@ -98,13 +98,17 @@
     // api docs: https://github.com/mbostock/d3/wiki/Selections#on
     d3.select(window).on("resize." + container.attr("id"), resize);
 
+
+
+
     // get width of container and resize svg to fit it
     function resize() {
       if(parseInt(container.style('width')) < 960) {
-        var targetWidth = parseInt(container.style("width")) ;
+        targetWidth = parseInt(container.style("width")) ;
+        console.log(targetWidth);
       }
         else {
-          var targetWidth = 960 - margin.left - margin.right;
+          targetWidth = 960 - margin.left - margin.right;
         }
         svg.attr("width", targetWidth);
         svg.attr("height", Math.round(targetWidth / aspect));
@@ -299,7 +303,7 @@
         tooltip.transition()
         .duration(200)
         .style('opacity', 1)
-        .style('left', '630px');
+        .style('left', String(targetWidth - 260) + 'px');
         tooltip.html(d.text);
       })
       .on('mouseout', function(d) {
