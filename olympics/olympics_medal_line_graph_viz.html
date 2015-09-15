@@ -23,8 +23,12 @@
 
     .line {
       fill: none;
-      stroke: steelblue;
+      stroke: #5aae61;
       stroke-width: 1.5px;
+    }
+
+    #id_line_women {
+      stroke: steelblue;
     }
 
 		</style>
@@ -75,11 +79,16 @@ var format = d3.time.format('%Y');
             d.Year = format.parse(d.Year);
             d['Medal Count'] = +d['Medal Count'];
           });
-    data = data.filter(function(row) {
+    women_data = data.filter(function(row) {
       if (row.Gender == 'Women'){
         return row
       };
     });
+    men_data = data.filter(function(row) {
+      if (row.Gender == 'Men') {
+        return row
+      }
+    })
     console.log(data);
     x.domain(d3.extent(data, function(d) { return d.Year; }));
     y.domain(d3.extent(data, function(d) { return d['Medal Count'];}));
@@ -99,12 +108,19 @@ var format = d3.time.format('%Y');
       .style('text-anchor', 'end')
       .text('Medal Count');
 
+      /*Adding line for women*/
     svg.append('path')
-      .datum(data)
+      .datum(women_data)
       .attr('class', 'line')
+      .attr('id', 'id_line_women')
       .attr('d', line);
 
-
+      /*Adding line for men*/
+    svg.append('path')
+      .datum(men_data)
+      .attr('class', 'line')
+      .attr('id', 'id_line_men')
+      .attr('d', line);
 
     });
 
