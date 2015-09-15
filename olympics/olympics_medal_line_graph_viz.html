@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>D3 Test</title>
+        <title>Gender at the Olympics</title>
 
 		<script src="http://d3js.org/d3.v3.min.js"  charset="utf-8"></script>
 		<style>
@@ -42,6 +42,7 @@
       width: 200px;
       height: 280px;
       pointer-events: none;
+      font-size: 12px;
     }
 
 		</style>
@@ -138,7 +139,7 @@
 
     var rectData1 = [{x: format.parse('1913'), y:maxy+10, width: 53, height:height+10}]
     var rectData2 = [{x: format.parse('1937'), y:maxy+10, width: 85, height:height+10}]
-    var textData1 = [{x: format.parse('1911'), y:maxy-700, text: 'World War I'}]
+    var textData1 = [{x: format.parse('1916'), y:maxy-700, text: 'World War I'}]
     var textData2 = [{x: format.parse('1942'), y:maxy-700, text: 'World War II'}]
 
     var toolTips = [
@@ -377,7 +378,8 @@
       .attr('x', function(d) {return x(d.x);})
       .attr('y', function(d) {return y(d.y);})
       .text( function(d) {return d.text;})
-      .attr('font-size', '14px')
+      .attr('font-size', '12px')
+      .attr('text-anchor', 'middle')
       .attr('fill-opacity', 0);
 
     svg.selectAll('.text_2')
@@ -387,7 +389,7 @@
       .attr('x', function(d) {return x(d.x);})
       .attr('y', function(d) {return y(d.y);})
       .text( function(d) {return d.text;})
-      .attr('font-size', '14px')
+      .attr('font-size', '12px')
       .attr('fill-opacity', 0)
       .attr('text-anchor', 'middle');
 
