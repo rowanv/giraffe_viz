@@ -21,13 +21,19 @@
       display: none;
     }
 
+    .datapoint {
+      r: 2;
+    }
+
     .line {
       fill: none;
       stroke: #5aae61;
       stroke-width: 1.5px;
     }
 
-    #id_line_women {
+    #id_line_women_1,
+    #id_line_women_2,
+    #id_line_women_3 {
       stroke: steelblue;
     }
 
@@ -41,7 +47,7 @@
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
-var format = d3.time.format('%Y');
+    var format = d3.time.format('%Y');
 
     var x = d3.time.scale()
       .range([0, width]);
@@ -79,17 +85,60 @@ var format = d3.time.format('%Y');
             d.Year = format.parse(d.Year);
             d['Medal Count'] = +d['Medal Count'];
           });
+
     women_data = data.filter(function(row) {
       if (row.Gender == 'Women'){
         return row
       };
     });
+
     men_data = data.filter(function(row) {
       if (row.Gender == 'Men') {
         return row
-      }
-    })
-    console.log(data);
+      };
+    });
+
+    women_data_1 = women_data.filter(function(row) {
+      if (row.Year < format.parse('1916')) {
+        return row
+      };
+    });
+
+    women_data_2 = women_data.filter(function(row) {
+      if (row.Year > format.parse('1916')){
+        if (row.Year < format.parse('1940')){
+          return row
+        };
+      };
+    });
+
+    women_data_3 = women_data.filter(function(row) {
+      if (row.Year > format.parse('1940')) {
+        return row
+      };
+    });
+
+    men_data_1 = men_data.filter(function(row) {
+      if (row.Year < format.parse('1916')) {
+        return row
+      };
+    });
+
+    men_data_2 = men_data.filter(function(row) {
+      if (row.Year > format.parse('1916')) {
+        if (row.Year < format.parse('1940')){
+          return row
+        };
+      };
+    });
+
+    men_data_3 = men_data.filter(function(row) {
+      if (row.Year > format.parse('1940')) {
+        return row
+      };
+    });
+
+    console.log(women_data_1);
     x.domain(d3.extent(data, function(d) { return d.Year; }));
     y.domain(d3.extent(data, function(d) { return d['Medal Count'];}));
 
@@ -110,20 +159,63 @@ var format = d3.time.format('%Y');
 
       /*Adding line for women*/
     svg.append('path')
-      .datum(women_data)
+      .datum(women_data_1)
       .attr('class', 'line')
-      .attr('id', 'id_line_women')
+      .attr('id', 'id_line_women_1')
+      .attr('d', line);
+
+    svg.append('path')
+      .datum(women_data_2)
+      .attr('class', 'line')
+      .attr('id', 'id_line_women_2')
+      .attr('d', line);
+
+    svg.append('path')
+      .datum(women_data_3)
+      .attr('class', 'line')
+      .attr('id', 'id_line_women_3')
       .attr('d', line);
 
       /*Adding line for men*/
     svg.append('path')
-      .datum(men_data)
+      .datum(men_data_1)
       .attr('class', 'line')
-      .attr('id', 'id_line_men')
+      .attr('id', 'id_line_men_1')
       .attr('d', line);
 
-    });
+    svg.append('path')
+      .datum(men_data_2)
+      .attr('class', 'line')
+      .attr('id', 'id_line_men_2')
+      .attr('d', line);
 
+    svg.append('path')
+      .datum(men_data_3)
+      .attr('class', 'line')
+      .attr('id', 'id_line_men_3')
+      .attr('d', line);
+
+
+    svg.selectAll('.dot_women')
+      .data(women_data)
+      .enter().append('circle')
+      .attr('class', 'datapoint')
+      .attr('cx', function(d) {return x(d.Year);})
+      .attr('cy', function(d) {return y(d['Medal Count']);})
+      .attr('stroke', 'steelblue')
+      .attr('fill', 'steelblue')
+
+    svg.selectAll('.dot_men')
+      .data(men_data)
+      .enter().append('circle')
+      .attr('class', 'datapoint')
+      .attr('cx', function(d) {return x(d.Year);})
+      .attr('cy', function(d) {return y(d['Medal Count']);})
+      .attr('stroke', '#5aae61')
+      .attr('fill', '#5aae61')
+
+
+    });
 
         </script>
     </body>
