@@ -37,6 +37,13 @@
       stroke: steelblue;
     }
 
+    .tooltip {
+      position: absolute;
+      width: 200px;
+      height: 280px;
+      pointer-events: none;
+    }
+
 		</style>
     </head>
     <body>
@@ -111,7 +118,10 @@
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
+    var tooltip = d3.select('body').append('div')
+        .attr('class', 'tooltip')
+        .style('opacity', 1)
+        .attr('align', 'right');
 
 
 
@@ -130,6 +140,25 @@
     var rectData2 = [{x: format.parse('1937'), y:maxy+10, width: 85, height:height+10}]
     var textData1 = [{x: format.parse('1911'), y:maxy-700, text: 'World War I'}]
     var textData2 = [{x: format.parse('1942'), y:maxy-700, text: 'World War II'}]
+
+    var toolTipsMen = [
+                        {x: format.parse('1928'),
+                        y: 95,
+                        text:'Women compete in track and field events for the first time.'},
+                        {x: format.parse('1900'),
+                          y: 11,
+                          text: '1900. Women first participate in the Olympic Games.'},
+                          {x: format.parse('1984'),
+                          y: 486,
+                          text: '1984. Women first participate in shooting events at the Olympic Games.'},
+                        {x: format.parse('2000'),
+                          y: 889,
+                          text: '2000. First time women participate in weightlifting at the Olympic Games.'},
+                        {x: format.parse('2008'),
+                        y: 932,
+                        text: '2008. There are still fewer Olympic Medals available to female athletes, but the Games have come a long way from founder de Coubertin\'s statemnt that women ought not to take part, as their participation would be \"impractical, uninteresting, unaesthetic, and incorrect\"'}
+                          ]
+
 
     women_data = data.filter(function(row) {
       if (row.Gender == 'Women'){
@@ -240,6 +269,26 @@
       .attr('id', 'id_line_men_3')
       .attr('d', line);
 
+    svg.selectAll('.dots')
+      .data(toolTipsMen)
+      .enter().append('circle')
+      .attr('cx', function(d) {return x(d.x);})
+      .attr('cy', function(d) {return y(d.y);})
+      .attr('r', 4)
+      .attr('stroke', 'steelblue')
+      .attr('fill', 'steelblue')
+      .on('mouseover', function(d) {
+        tooltip.transition()
+        .duration(200)
+        .style('opacity', 1)
+        .style('left', '630px');
+        tooltip.html(d.text);
+      })
+      .on('mouseout', function(d) {
+        tooltip.transition()
+        .duration(500)
+        .style('opacity', 0);
+      })
       /*
     svg.selectAll('.dot_women')
       .data(women_data)
