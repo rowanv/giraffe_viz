@@ -37,6 +37,13 @@
       stroke: steelblue;
     }
 
+    .tooltip {
+      position: absolute;
+      width: 200px;
+      height: 280px;
+      pointer-events: none;
+    }
+
 		</style>
     </head>
     <body>
@@ -45,7 +52,7 @@
 
 
 
-    var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    var margin = {top: 40, right: 20, bottom: 30, left: 50},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
@@ -111,7 +118,10 @@
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
+    var tooltip = d3.select('body').append('div')
+        .attr('class', 'tooltip')
+        .style('opacity', 1)
+        .attr('align', 'right');
 
 
 
@@ -130,6 +140,35 @@
     var rectData2 = [{x: format.parse('1937'), y:maxy+10, width: 85, height:height+10}]
     var textData1 = [{x: format.parse('1911'), y:maxy-700, text: 'World War I'}]
     var textData2 = [{x: format.parse('1942'), y:maxy-700, text: 'World War II'}]
+
+    var toolTips = [
+                        {x: format.parse('1928'),
+                        y: 95,
+                        text:'Women compete in track and field events for the first time.'},
+                        {x: format.parse('1900'),
+                          y: 11,
+                          text: '1900. Women first participate in the Olympic Games.'},
+                          {x: format.parse('1984'),
+                          y: 486,
+                          text: '1984. Women first participate in shooting events at the Olympic Games.'},
+                        {x: format.parse('2000'),
+                          y: 889,
+                          text: '2000. First time women participate in weightlifting at the Olympic Games.'},
+                        {x: format.parse('2008'),
+                        y: 932,
+                        text: '2008. There are still fewer Olympic Medals available to female athletes, but the Games have come a long way from founder de Coubertin\'s statemnt that women ought not to take part, as their participation would be \"impractical, uninteresting, unaesthetic, and incorrect\"'}
+                          ]
+    var lineLabels = [
+    {x: format.parse('2006'),
+      y: 1120,
+      text: 'Men',
+      colour: '#5aae61'},
+      {x: format.parse('2004'),
+      y: 950,
+      text: 'Women',
+      colour: 'steelblue'}]
+
+
 
     women_data = data.filter(function(row) {
       if (row.Gender == 'Women'){
@@ -183,9 +222,16 @@
       };
     });
 
-    console.log(women_data_1);
     x.domain(d3.extent(data, function(d) { return d.Year; }));
     y.domain(d3.extent(data, function(d) { return d['Medal Count'];}));
+
+    /* Title */
+    svg.append('text')
+      .attr('x', (width / 2))
+      .attr('y', 0 - (margin.top /2))
+      .attr('text-anchor', 'middle')
+      .style('font-size', '16px')
+      .text('Gender and the Olympics: Medal Count for the Games By Gender Over Time')
 
     svg.append('g')
       .attr('class', 'x axis')
@@ -240,6 +286,26 @@
       .attr('id', 'id_line_men_3')
       .attr('d', line);
 
+    svg.selectAll('.dots')
+      .data(toolTips)
+      .enter().append('circle')
+      .attr('cx', function(d) {return x(d.x);})
+      .attr('cy', function(d) {return y(d.y);})
+      .attr('r', 4)
+      .attr('stroke', 'steelblue')
+      .attr('fill', 'steelblue')
+      .on('mouseover', function(d) {
+        tooltip.transition()
+        .duration(200)
+        .style('opacity', 1)
+        .style('left', '630px');
+        tooltip.html(d.text);
+      })
+      .on('mouseout', function(d) {
+        tooltip.transition()
+        .duration(500)
+        .style('opacity', 0);
+      })
       /*
     svg.selectAll('.dot_women')
       .data(women_data)
@@ -324,6 +390,16 @@
       .attr('font-size', '14px')
       .attr('fill-opacity', 0)
       .attr('text-anchor', 'middle');
+
+    svg.selectAll('.labels_1')
+      .data(lineLabels)
+      .enter().append('text')
+      .attr('x', function(d) {return x(d.x);})
+      .attr('y', function(d) {return y(d.y);})
+      .attr('text-anchor', 'right')
+      .attr('fill', function(d) {return d.colour;})
+      .text(function(d) {return d.text;});
+
 
 
     });
