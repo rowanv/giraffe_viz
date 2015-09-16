@@ -163,8 +163,17 @@ d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data
           }).text(function(d) { return d.Discipline });
 
 
+        dispatch.on('sliderChange', function(d) {
+          circle.transition()
+          .style('fill', 'red');
+        });
+
+
 
         });
+
+      var circles = d3.selectAll('circle');
+
 
 
 
