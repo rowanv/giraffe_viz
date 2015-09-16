@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+
+		<script src="http://d3js.org/d3.v3.min.js"  charset="utf-8"></script>
+		<style>
+
+    circle {
+      fill: steelblue;
+      fill-opacity: 0.4;
+    }
+
+    text {
+      font: 10px sans-serif;
+    }
+
+
+		</style>
+    </head>
+    <body>
+
+
+    <script>
+var diameter = 960,
+    format = d3.time.format('%Y'),
+    color = d3.scale.category20c();
+
+var bubble = d3.layout.pack()
+    .sort(null)
+    .size([diameter, diameter])
+    .padding(1.5)
+    .value(function(d) {return d.size;})
+
+var svg = d3.select('body').append('svg')
+    .attr('width', diameter)
+    .attr('height', diameter)
+    .attr('class', 'bubble');
+
+d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data) {
+
+
+
+          data.forEach(function(d) {
+            d.Year = format.parse(d.Year);
+            d['Medal Count'] = +d['Medal Count'];
+
+          });
+
+          nodes = [];
+
+          data.forEach(function(d) {
+            var node;
+            node = {
+              Year: d.Year,
+              Discipline: d.Discipline,
+              radius: d['Medal Count'],
+              cx: Math.random() * 1000,
+              cy: Math.random() * 1000
+            }
+            nodes.push(node);
+          });
+
+        var elemBlocks = svg.selectAll('g')
+          .data(nodes).enter()
+          .append('g')
+
+        var circle = elemBlocks.append('circle')
+          .attr('r', function(d) {
+            return d.radius;
+          })
+          .attr('cx', function(d) {
+            return d.cx;
+          }).attr('cy', function(d) {
+            return d.cy;
+          });
+
+        var text = elemBlocks.append('text')
+          .attr('dx', function(d) {
+            return d.cx;
+          }).attr('dy', function(d) {
+            return d.cy;
+          }).text(function(d) { return d.Discipline });
+
+
+
+        });
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
