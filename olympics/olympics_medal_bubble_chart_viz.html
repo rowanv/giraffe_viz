@@ -101,6 +101,19 @@ dispatch.on("sliderChange.slider", function(value) {
   sliderHandle.style("left", x(value) + "px")
 });
 
+/* End of slider */
+
+var colours = [
+  '#8dd3c7',
+  '#ffffb3',
+  '#bebada',
+  '#fb8072',
+  '#80b1d3',
+  '#fdb462',
+  '#b3de69',
+  '#fccde5',
+  '#d9d9d9'
+  ]
 
 
 
@@ -128,7 +141,8 @@ d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data
               Discipline: d.Discipline,
               radius: d['Medal Count'],
               cx: Math.random() * 1000,
-              cy: Math.random() * 1000 + margin.top + 40
+              cy: Math.random() * 1000 + margin.top + 40,
+              colour: colours[Math.floor(Math.random()*colours.length)]
             }
             nodes.push(node);
           });
@@ -153,6 +167,9 @@ d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data
           })
           .attr('year', function(d) {
             return d.Year;
+          })
+          .style('fill', function(d) {
+            return d.colour;
           });
 
         var text = elemBlocks.append('text')
