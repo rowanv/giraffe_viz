@@ -159,7 +159,7 @@ d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data
 
 
 var x = d3.time.scale()
-    .domain([format.parse('1950'), format.parse('2015')])
+    .domain([format.parse('1896'), format.parse('2008')])
     .range([0, width])
     .clamp(true);
 
@@ -171,7 +171,7 @@ var brush = d3.svg.brush()
 
 svg.append("g")
     .attr("class", "x axis")
-    .attr("transform", "translate(0," + height / 2 + ")")
+    .attr("transform", "translate(0," + margin.top + ")")
     .call(d3.svg.axis()
       .scale(x)
       .orient("bottom")
@@ -195,7 +195,7 @@ slider.select(".background")
 var handle = slider.append("circle")
     .attr("class", "handle")
     .attr('id', 'circle-slider')
-    .attr("transform", "translate(0," + height / 2 + ")")
+    .attr("transform", "translate(0," + margin.top + ")")
     .attr("r", 9);
 
 slider
@@ -255,12 +255,13 @@ function brushed() {
   }
     var d = new Date(value);
     var y = d.getFullYear();
-    var yy = y - y%5;
+    var yy = y - y%4;
     var dt = new Date(yy, 0, 0);
     var circle = d3.selectAll('.circle-sport');
   handle.attr("cx", x(dt.getTime()));
-  circle.transition()
-          .style('fill', 'red');
+  circle.transition();
+          //.style('fill', 'red');
+  console.log(value);
 }
 
 
