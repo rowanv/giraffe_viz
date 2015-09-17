@@ -269,9 +269,7 @@ d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data
 
                   //.style('fill', 'red');
           console.log(dt);
-          d3.selectAll("[year=\'" + String(dt) + "\']")
-            .transition()
-              .style('fill-opacity', 1);
+
 
 
 
@@ -290,6 +288,9 @@ d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data
             var yy = y - y%4;
             var dt = new Date(yy, 0, 1);
             var circle = d3.selectAll('.circle-sport');
+          d3.selectAll("[year=\'" + String(dt) + "\']")
+            .transition()
+              .style('fill-opacity', 1);
           lastDate = dt
         }
 
