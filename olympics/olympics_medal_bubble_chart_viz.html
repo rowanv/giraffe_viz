@@ -155,57 +155,57 @@ d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data
           });
 
 
+      /* Slider */
 
 
+      var x = d3.time.scale()
+          .domain([format.parse('1896'), format.parse('2008')])
+          .range([0, width])
+          .clamp(true);
 
-var x = d3.time.scale()
-    .domain([format.parse('1896'), format.parse('2008')])
-    .range([0, width])
-    .clamp(true);
-
-var brush = d3.svg.brush()
-    .x(x)
-    .extent([0, 0])
-    .on("brush", brushed);
-
-
-svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + margin.top + ")")
-    .call(d3.svg.axis()
-      .scale(x)
-      .orient("bottom")
-      .tickFormat(d3.time.format('%Y'))
-      .tickSize(0)
-      .tickPadding(12))
-  .select(".domain")
-  .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
-    .attr("class", "halo");
-
-var slider = svg.append("g")
-    .attr("class", "slider")
-    .call(brush);
-
-slider.selectAll(".extent,.resize")
-    .remove();
-
-slider.select(".background")
-    .attr("height", height);
-
-var handle = slider.append("circle")
-    .attr("class", "handle")
-    .attr('id', 'circle-slider')
-    .attr("transform", "translate(0," + margin.top + ")")
-    .attr("r", 9);
-
-slider
-    .call(brush.event)
-  .transition() // gratuitous intro!
-    .duration(750)
-    .call(brush.extent([70, 70]))
-    .call(brush.event);
+      var brush = d3.svg.brush()
+          .x(x)
+          .extent([0, 0])
+          .on("brush", brushed);
 
 
+      svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + margin.top + ")")
+          .call(d3.svg.axis()
+            .scale(x)
+            .orient("bottom")
+            .tickFormat(d3.time.format('%Y'))
+            .tickSize(0)
+            .tickPadding(12))
+        .select(".domain")
+        .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+          .attr("class", "halo");
+
+      var slider = svg.append("g")
+          .attr("class", "slider")
+          .call(brush);
+
+      slider.selectAll(".extent,.resize")
+          .remove();
+
+      slider.select(".background")
+          .attr("height", height);
+
+      var handle = slider.append("circle")
+          .attr("class", "handle")
+          .attr('id', 'circle-slider')
+          .attr("transform", "translate(0," + margin.top + ")")
+          .attr("r", 9);
+
+      slider
+          .call(brush.event)
+        .transition() // gratuitous intro!
+          .duration(750)
+          .call(brush.extent([70, 70]))
+          .call(brush.event);
+
+        /* end of slider */
 
 
 
@@ -226,7 +226,7 @@ slider
             return d.cy;
           })
           .attr('year', function(d) {
-            return d.Year;
+            return String(d.Year);
           })
           .style('fill', function(d) {
             return d.colour;
@@ -246,23 +246,27 @@ slider
         });*/
 
 
-function brushed() {
-  var value = brush.extent()[0];
+        function brushed() {
+          var value = brush.extent()[0];
 
-  if (d3.event.sourceEvent) { // not a programmatic event
-    value = x.invert(d3.mouse(this)[0]);
-    brush.extent([value, value]);
-  }
-    var d = new Date(value);
-    var y = d.getFullYear();
-    var yy = y - y%4;
-    var dt = new Date(yy, 0, 0);
-    var circle = d3.selectAll('.circle-sport');
-  handle.attr("cx", x(dt.getTime()));
-  circle.transition();
-          //.style('fill', 'red');
-  console.log(value);
-}
+          if (d3.event.sourceEvent) { // not a programmatic event
+            value = x.invert(d3.mouse(this)[0]);
+            brush.extent([value, value]);
+          }
+            var d = new Date(value);
+            var y = d.getFullYear();
+            var yy = y - y%4;
+            var dt = new Date(yy, 0, 1);
+            var circle = d3.selectAll('.circle-sport');
+          handle.attr("cx", x(dt.getTime()));
+
+                  //.style('fill', 'red');
+          console.log(dt);
+          d3.selectAll("[year=\'" + String(dt) + "\']")
+            .transition()
+              .style('fill-opacity', 1);
+              //'[year=\'Fri Jan 01 1988 00:00:00 GMT-0600 (CST)\']'
+        }
 
 
         });
