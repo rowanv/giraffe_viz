@@ -39,11 +39,12 @@
 
     .circle-sport {
       fill: steelblue;
-      fill-opacity: 0.4;
+      fill-opacity: 0;
     }
 
-    text {
+    .text-sport {
       font: 10px sans-serif;
+      fill-opacity: 0;
     }
 
     .slider {
@@ -166,7 +167,9 @@ d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data
       var brush = d3.svg.brush()
           .x(x)
           .extent([0, 0])
-          .on("brush", brushed);
+          .on("brush", brushed)
+          .on('brushstart', brushStart)
+          .on('brushend', brushEnd);
 
 
       svg.append("g")
@@ -233,10 +236,13 @@ d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data
           });
 
         var text = elemBlocks.append('text')
+          .attr('class', 'text-sport')
           .attr('dx', function(d) {
             return d.cx;
           }).attr('dy', function(d) {
             return d.cy;
+          }).attr('year', function(d) {
+            return String(d.Year);
           }).text(function(d) { return d.Discipline });
 
           /*
@@ -245,6 +251,7 @@ d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data
           .style('fill', 'red');
         });*/
 
+        var lastDate = Date('1800', 0, 1)
 
         function brushed() {
           var value = brush.extent()[0];
@@ -265,7 +272,49 @@ d3.csv('Year_and_Discipline_Women_Olympics_Dataset_All_Years.csv', function(data
           d3.selectAll("[year=\'" + String(dt) + "\']")
             .transition()
               .style('fill-opacity', 1);
+
+
+
               //'[year=\'Fri Jan 01 1988 00:00:00 GMT-0600 (CST)\']'
+        }
+
+        function brushEnd() {
+          var value = brush.extent()[0];
+
+          if (d3.event.sourceEvent) { // not a programmatic event
+            value = x.invert(d3.mouse(this)[0]);
+            brush.extent([value, value]);
+          }
+            var d = new Date(value);
+            var y = d.getFullYear();
+            var yy = y - y%4;
+            var dt = new Date(yy, 0, 1);
+            var circle = d3.selectAll('.circle-sport');
+          lastDate = dt
+        }
+
+
+        function brushStart() {
+          var value = brush.extent()[0];
+
+          if (d3.event.sourceEvent) { // not a programmatic event
+            value = x.invert(d3.mouse(this)[0]);
+            brush.extent([value, value]);
+          }
+            var d = new Date(value);
+            var y = d.getFullYear();
+            var yy = y - y%4;
+            var dt = new Date(yy, 0, 1);
+            var circle = d3.selectAll('.circle-sport');
+          handle.attr("cx", x(dt.getTime()));
+
+                  //.style('fill', 'red');
+          console.log(dt);
+          d3.selectAll("[year=\'" + String(lastDate) + "\']")
+            .transition()
+              .style('fill-opacity', 0);
+
+
         }
 
 
