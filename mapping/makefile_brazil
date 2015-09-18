@@ -13,7 +13,7 @@ generate_datasets:
 	cd ../ne_10m_populated_places/
 	ogr2ogr \
 	-f GeoJSON \
-	-where "ISO_A2 = 'BR' AND SCALERANK < 8" \
+	-where "ISO_A2 = 'BR' AND SCALERANK < 6" \
 	brazil_places.json \
 	ne_10m_populated_places.shp
 
