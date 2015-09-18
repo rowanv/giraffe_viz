@@ -1,0 +1,35 @@
+generate_datasets:
+	# We filter administrative boundaries to find thsoe that correspond
+	# to Brazil
+	cd ne_10m_admin_0_map_subunits/
+	ogr2ogr \
+	-f GeoJSON \
+	-where "ADM0_A3 = 'BRA'" \
+	brazil_subunits.json \
+	ne_10m_admin_0_map_subunits.shp
+
+
+	#We filter populated places to find those that correspond to Brazil
+	cd ../ne_10m_populated_places/
+	ogr2ogr \
+	-f GeoJSON \
+	-where "ISO_A2 = 'BR' AND SCALERANK < 8" \
+	brazil_places.json \
+	ne_10m_populated_places.shp
+
+	# Combine our two json files into a single brazil.json
+	# And clean up the file
+	mv ../ne_10m_admin_0_map_subunits/brazil_subunits.json .
+
+	topojson \
+	-o brazil.json \
+	--id-property SU_A3 \
+	--properties name=NAME \
+	-- \
+	brazil_subunits.json \
+	brazil_places.json
+
+	cd ~/workspace/giraffe_viz/mapping/
+	mv ~/Downloads/ne_10m_populated_places/brazil.json .
+
+
