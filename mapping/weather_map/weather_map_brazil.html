@@ -34,6 +34,19 @@
 		.attr('width', width)
 		.attr('height', height);
 
+	var colours = [
+	  '#ffffe5',
+	  '#fff7bc',
+	  '#fee391',
+	  '#fec44f',
+	  '#fe9929',
+	  '#ec7014',
+	  '#cc4c02',
+	  '#993404',
+	  '#662506'
+	  ]
+
+
 	data = [];
 /*
 	d3.json("brazil.json", function(error, brazil) {
@@ -109,8 +122,10 @@
 			d.coord.lon = +d.coord.lon;
 			d.name = d.name
 			d.main.temp = +d.main.temp;
+			d.colour = colours[Math.floor(d.main.temp/40*colours.length)]
 			console.log(d.name);
-			console.log(d.main.temp)});
+			console.log(d.main.temp);
+			console.log(d.colour)});
 
 		svg.selectAll('.weatherCircle')
 			.data(data.list)
@@ -118,7 +133,8 @@
 			.attr('r', 5)
 			.attr('cx', function(d) { return d.coord.lat * -10;})
 			.attr('cy', function(d) {return d.coord.lon * -10;})
-			.attr('temp', function(d) {return d.main.temp;});
+			.attr('temp', function(d) {return d.main.temp;})
+			.attr('fill', function(d) {return d.colour});
 
 
 		
