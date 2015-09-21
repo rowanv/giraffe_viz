@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.subunit.BRA {
+	fill: #ddc;
+}
+
+.place-label {
+	font-family: sans-serif;
+	font-size: 10px;
+}
+
+.subunit-label {
+  fill: #777;
+  fill-opacity: .5;
+  font-size: 20px;
+  font-weight: 300;
+  text-anchor: middle;
+}
+
+
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script>
+
+	var width = 1160,
+		height = 1160;
+
+	var svg = d3.select('body').append('svg')
+		.attr('width', width)
+		.attr('height', height);
+
+	data = [];
+/*
+	d3.json("brazil.json", function(error, brazil) {
+		if (error) return console.error(error);
+
+		var subunits = topojson.feature(brazil, brazil.objects.brazil_subunits);
+
+		var projection = d3.geo.mercator()
+			.center([-60, -20])
+			.scale(1200)
+			.translate([width / 2, height / 2]);
+
+		var path = d3.geo.path()
+			.projection(projection);
+
+  		svg.append('path')
+  			.datum(subunits)
+  			.attr('d', path);
+
+  		/* Adding subunit class so can add fill style *//*
+  		svg.selectAll('.subunit')
+  			.data(topojson.feature(brazil, brazil.objects.brazil_subunits).features)
+  		  .enter().append('path')
+  		  	.attr('class', function(d) {return 'subunit ' + d.id; })
+  		  	.attr('d', path);
+
+  		svg.append('path')
+  			.datum(topojson.feature(brazil, brazil.objects.brazil_places))
+  			.attr('d', path.pointRadius(1))
+  			.attr('class', 'place');
+
+  		svg.selectAll('.place-label')
+  			.data(topojson.feature(brazil, brazil.objects.brazil_places).features)
+  		  .enter().append('text')
+  		  	.attr('class', 'place-label')
+  		  	.attr('id', function(d) { return d.properties.name.split(' ').join('_'); })
+  		  	.attr('transform', function(d){
+  		  		return 'translate(' + projection(d.geometry.coordinates) + ')';
+  		  		})
+  		  	.attr('dy', '.35em')
+  		  	.text(function(d) { return d.properties.name; });
+
+  		  	/* Making half the labels go left, half go right *//*
+  		svg.selectAll(".place-label")
+    			.attr("x", function(d) { return d.geometry.coordinates[0] > -47 ? 6 : -6; })
+    			.style("text-anchor", function(d) { return d.geometry.coordinates[0] > -47 ? "start" : "end"; });
+
+    	svg.selectAll(".subunit-label")
+		    .data(topojson.feature(brazil, brazil.objects.brazil_subunits).features)
+		  .enter().append("text")
+		    .attr("class", function(d) { return "subunit-label " + d.id; })
+		    .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+		    .attr("dy", ".35em")
+		    .text(function(d) { return d.properties.name; });
+
+		/* Fixing overlapping labels *//*
+		svg.selectAll('#Caxias')
+			.style("text-anchor", "end" )
+			.attr('x', '-6');
+		svg.selectAll('#Ponta_Grossa')
+			.style("text-anchor", "start" )
+			.attr('x', '6');
+  		console.log(svg.selectAll('#Caxias').geometry);
+
+  		});*/
+
+  		d3.json('test_data.json', function(error, json) { 
+		if (error) return console.warn(error);
+		data = json;
+		console.log(data.list[0]);
+		data.list.forEach(function(d) { 
+			d.coord.lat = +d.coord.lat;
+			d.coord.lon = +d.coord.lon;
+			d.name = d.name
+			d.main.temp = +d.main.temp;
+			console.log(d.name);
+			console.log(d.main.temp)});
+
+		svg.selectAll('.weatherCircle')
+			.data(data.list)
+		  .enter().append('svg:circle')
+			.attr('r', 5)
+			.attr('cx', function(d) { return d.coord.lat * -10;})
+			.attr('cy', function(d) {return d.coord.lon * -10;})
+			.attr('temp', function(d) {return d.main.temp;});
+
+
+		
+	});
+
+	
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
