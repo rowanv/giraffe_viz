@@ -15,9 +15,9 @@ url_old = 'http://api.openweathermap.org/data/2.5/group?id=%s&units=metric' % jo
 
 OUTFILE = 'cleaned_brazil_weather_data.json'
 
-response = urllib.request.urlopen(url) 
+response = urllib.request.urlopen(url)
 str_response = response.readall().decode('utf-8')
-data = json.loads(str_response) 
+data = json.loads(str_response)
 
 with open('intermediary_test', 'w') as outfile:
 	json.dump(data, outfile)
@@ -25,7 +25,7 @@ with open('intermediary_test', 'w') as outfile:
 
 
 weather_df = pd.DataFrame.from_dict([x for x in data['list']])
-cities_df = pd.DataFrame.from_csv('city_list_brazil.txt', sep='\t')
+cities_df = pd.DataFrame.from_csv('/Users/rowan/workspace/giraffe_viz/mapping/weather_map/city_list_brazil.txt', sep='\t')
 
 joined_weather_dfs = weather_df.merge(cities_df, how='inner', left_on='name', right_on='nm')
 joined_weather_dfs.fillna('NULL', inplace=True)
