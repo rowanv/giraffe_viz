@@ -1,15 +1,14 @@
 import json
 import urllib.request
 import pandas as pd
+from datetime import datetime
+import calendar
 
-city_ids = [ 3663517, 3462916, 3664980]
-city_ids = [str(x) for x in city_ids]
-joined_city_ids = ','.join(city_ids)
-
+d = datetime.utcnow()
+current_date = calendar.timegm(d.utctimetuple())
 
 url = 'http://api.openweathermap.org/data/2.5/box/city?bbox=-34,5,-73,-33,6&cluster=yes&country=BR&units=metric'
 
-url_old = 'http://api.openweathermap.org/data/2.5/group?id=%s&units=metric' % joined_city_ids
 
 
 
@@ -25,6 +24,8 @@ with open('intermediary_test', 'w') as outfile:
 
 
 weather_df = pd.DataFrame.from_dict([x for x in data['list']])
+weather_df['time_collected'] = pd.Series([current_date] * len(weather_df))
+
 cities_df = pd.DataFrame.from_csv('/Users/rowan/workspace/giraffe_viz/mapping/weather_map/city_list_brazil.txt', sep='\t')
 
 joined_weather_dfs = weather_df.merge(cities_df, how='inner', left_on='name', right_on='nm')
