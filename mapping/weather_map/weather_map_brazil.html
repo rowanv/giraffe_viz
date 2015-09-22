@@ -19,6 +19,12 @@
   text-anchor: middle;
 }
 
+.bubble {
+  fill-opacity: .5;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
 
 
 </style>
@@ -115,15 +121,15 @@
   		});
 
 
-		
 
 
-		d3.json('cleaned_brazil_weather_data.json', function(error, json) { 
+
+		d3.json('cleaned_brazil_weather_data.json', function(error, json) {
 		if (error) return console.warn(error);
 		data = json;
 
 		console.log(data);
-		data.list.forEach(function(d) { 
+		data.list.forEach(function(d) {
 			d.coord.lat = +d.coord.lat;
 			d.coord.lon = +d.coord.lon;
 			d.name = d.name
@@ -140,7 +146,7 @@
 			.attr('cx', function(d) { return d.coord.lat * -10;})
 			.attr('cy', function(d) {return d.coord.lon * -10;})
 			.attr('temp', function(d) {return d.main.temp;})
-			.attr('fill', function(d) {return d.colour}); 
+			.attr('fill', function(d) {return d.colour});
 		*/
 
 				var projection = d3.geo.mercator()
@@ -151,8 +157,9 @@
 		svg.selectAll('.pin')
 			.data(data.list)
 		.enter().append('circle', '.pin')
-			.attr('r', function(d) { return d.main.temp / 2 })
-			.attr('fill-opacity', 0.8)
+			.attr('r', function(d) { return (d.main.temp - 10) })
+			.attr('class', 'bubble')
+
 			.attr('city', function(d) { return d.name; })
 			.attr('temp', function(d) {return d.main.temp;})
 			.attr('fill', function(d) {return d.colour})
@@ -166,7 +173,7 @@
 				});
 
 
-	
+
 
 
 
