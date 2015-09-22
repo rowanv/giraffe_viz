@@ -55,6 +55,9 @@
 
     data = [];
 
+    /* Get the domain */
+
+
     /* Render underlying map of Brazil */
     d3.json("brazil.json", function(error, brazil) {
         if (error) return console.error(error);
@@ -125,7 +128,7 @@
 
 
         /* Render temperature bubbles */
-        d3.json('cleaned_brazil_weather_data.json', function(error, json) {
+        d3.json('joined_brazil_weather_data.json', function(error, json) {
         if (error) return console.warn(error);
         data = json;
 
@@ -137,6 +140,10 @@
             d.main.temp = +d.main.temp;
             d.colour = colours[Math.floor(d.main.temp/40*colours.length)]
         });
+
+        var scale = d3.time.scale()
+            .domain(d3.extent(data.list, function(d) { return d.time_collected; }))
+
 
         var projection = d3.geo.mercator()
             .center([-60, -20])
