@@ -122,7 +122,7 @@
             .attr('x', '6');
         console.log(svg.selectAll('#Caxias').geometry);
 
-        });
+
 
 
 
@@ -143,6 +143,10 @@
 
         var scale = d3.time.scale()
             .domain(d3.extent(data.list, function(d) { return d.time_collected; }))
+            .range([0, width])
+            .clamp(true);
+
+
 
 
         var projection = d3.geo.mercator()
@@ -153,6 +157,7 @@
         svg.selectAll('.pin')
             .data(data.list)
           .enter().append('circle', '.pin')
+            .filter(function(d) { return d.time_collected == 1442933898})
             .attr('r', function(d) { return (d.main.temp - 10) })
             .attr('class', 'bubble')
             .attr('city', function(d) { return d.name; })
@@ -167,7 +172,7 @@
 
     });
 
-
+});
 
 
 
