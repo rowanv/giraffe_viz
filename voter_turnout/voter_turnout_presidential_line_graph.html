@@ -25,6 +25,7 @@
       fill: none;
       stroke: #5aae61;
       stroke-width: 1.5px;
+      opacity: 0.2;
     }
 
 </style>
@@ -32,6 +33,24 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
 <script>
+
+	function RemoveAccents(strAccents) {
+		var strAccents = strAccents.split('');
+		var strAccentsOut = new Array();
+		var strAccentsLen = strAccents.length;
+		var accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+		var accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
+		for (var y = 0; y < strAccentsLen; y++) {
+			if (accents.indexOf(strAccents[y]) != -1) {
+				strAccentsOut[y] = accentsOut.substr(accents.indexOf(strAccents[y]), 1);
+			} else
+				strAccentsOut[y] = strAccents[y];
+		}
+		strAccentsOut = strAccentsOut.join('');
+		strAccentsOut = strAccentsOut.replace(/[.,-\/#!$%\^&\'*;:{1234567890}=\-_`~()]/g,"")
+		strAccentsOut = strAccentsOut.replace(/\s+/g, '')
+		return strAccentsOut;
+	}
 
 
 	var margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -108,7 +127,16 @@
 		dataNest.forEach(function(d) { 
 			svg.append('path')
 			.attr('class', 'line')
+			.attr('id', RemoveAccents(d.key))
 			.attr('d', countryLine(d.values))
+			.on('mouseover', function(){
+				d3.selectAll('#' + String(RemoveAccents(d.key)))
+				.transition().duration(100)
+				.style('opacity', 0.8)
+				console.log('.'+ String(RemoveAccents(d.key)))
+
+			//d.style('opacity', 1);
+			});
 		});
 
 
