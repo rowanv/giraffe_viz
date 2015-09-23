@@ -42,7 +42,6 @@
 183,Azerbaijan,71.23,2003
 184,Azerbaijan,75.35,2008
 185,Azerbaijan,71.63,2013
-209,Bangladesh,,1978
 210,Bangladesh,55.65,1981
 211,Bangladesh,54.09,1986
 231,Belarus,69.9,1994
@@ -134,9 +133,6 @@
 540,Comoros,76.28,2002
 541,Comoros,57.26,2006
 542,Comoros,52.8,2010
-545,"Congo, Democratic Republic of",,1970
-546,"Congo, Democratic Republic of",,1977
-547,"Congo, Democratic Republic of",,1984
 548,"Congo, Democratic Republic of",65.36,2006
 549,"Congo, Democratic Republic of",59.05,2011
 572,Costa Rica,60.02,1948
@@ -177,11 +173,6 @@
 686,Djibouti,78.9,2005
 687,Djibouti,75.45,2011
 717,Dominican Republic,100.0,1947
-718,Dominican Republic,,1952
-719,Dominican Republic,,1957
-720,Dominican Republic,,1962
-721,Dominican Republic,,1966
-722,Dominican Republic,,1970
 723,Dominican Republic,75.68,1974
 724,Dominican Republic,72.5,1978
 725,Dominican Republic,73.89,1982
@@ -214,14 +205,8 @@
 783,Egypt,22.95,2005
 784,Egypt,51.85,2012
 785,Egypt,47.5,2014
-806,El Salvador,,1945
-807,El Salvador,,1950
-808,El Salvador,,1956
-809,El Salvador,,1962
 810,El Salvador,38.84,1967
 811,El Salvador,72.02,1972
-812,El Salvador,,1977
-813,El Salvador,,1984
 814,El Salvador,54.7,1989
 815,El Salvador,46.16,1994
 816,El Salvador,38.57,1999
@@ -294,11 +279,7 @@
 1089,Guinea-Bissau,87.63,2005
 1090,Guinea-Bissau,61.09,2009
 1091,Guinea-Bissau,89.29,2014
-1109,Haiti,,1950
-1110,Haiti,,1957
-1111,Haiti,,1988
 1112,Haiti,50.16,1990
-1113,Haiti,,1995
 1114,Haiti,78.29,2000
 1115,Haiti,59.26,2006
 1116,Haiti,22.36,2011
@@ -324,7 +305,6 @@
 1208,Indonesia,68.51,2004
 1209,Indonesia,71.91,2009
 1210,Indonesia,69.58,2014
-1217,"Iran, Islamic Republic of",,1993
 1218,"Iran, Islamic Republic of",72.76,2001
 1219,"Iran, Islamic Republic of",59.76,2005
 1220,"Iran, Islamic Republic of",84.77,2009
@@ -350,12 +330,8 @@
 1386,Kiribati,69.3,1983
 1387,Kiribati,78.3,1987
 1388,Kiribati,73.7,1991
-1389,Kiribati,,1994
-1390,Kiribati,,1998
-1391,Kiribati,,2003
 1392,Kiribati,57.08,2007
 1393,Kiribati,68.0,2012
-1407,"Korea, Republic of",,1992
 1408,"Korea, Republic of",80.65,1997
 1409,"Korea, Republic of",70.83,2002
 1410,"Korea, Republic of",63.01,2007
@@ -363,7 +339,6 @@
 1433,Kyrgyzstan,86.19,1995
 1434,Kyrgyzstan,77.26,2000
 1435,Kyrgyzstan,74.97,2005
-1436,Kyrgyzstan,,2009
 1437,Kyrgyzstan,61.28,2011
 1472,Liberia,61.04,2005
 1473,Liberia,38.6,2011
@@ -402,9 +377,6 @@
 1630,Mauritania,70.16,2007
 1631,Mauritania,61.51,2009
 1632,Mauritania,56.46,2014
-1667,Mexico,,1946
-1668,Mexico,,1952
-1669,Mexico,,1958
 1670,Mexico,69.33,1964
 1671,Mexico,64.26,1970
 1672,Mexico,64.55,1976
@@ -432,13 +404,8 @@
 1756,Namibia,74.18,1994
 1757,Namibia,62.06,1999
 1758,Namibia,85.47,2004
-1759,Namibia,,2009
 1760,Namibia,71.76,2014
-1856,Nicaragua,,1947
-1857,Nicaragua,,1950
-1858,Nicaragua,,1957
 1859,Nicaragua,79.13,1963
-1860,Nicaragua,,1967
 1861,Nicaragua,69.43,1974
 1862,Nicaragua,75.42,1984
 1863,Nicaragua,86.23,1990
@@ -452,7 +419,6 @@
 1877,Niger,44.98,2004
 1878,Niger,48.96,2011
 1887,Nigeria,35.25,1979
-1888,Nigeria,,1993
 1889,Nigeria,52.26,1999
 1890,Nigeria,69.08,2003
 1891,Nigeria,57.49,2007
@@ -482,8 +448,6 @@
 1962,Panama,76.9,2004
 1963,Panama,68.57,2009
 1964,Panama,76.76,2014
-1989,Paraguay,,1953
-1990,Paraguay,,1958
 1991,Paraguay,85.12,1963
 1992,Paraguay,73.14,1968
 1993,Paraguay,77.39,1973
@@ -491,7 +455,6 @@
 1995,Paraguay,92.62,1983
 1996,Paraguay,92.17,1988
 1997,Paraguay,54.03,1989
-1998,Paraguay,,1993
 1999,Paraguay,80.54,1998
 2000,Paraguay,64.2,2003
 2001,Paraguay,60.34,2008
@@ -509,7 +472,6 @@
 2024,Peru,81.37,2001
 2025,Peru,87.71,2006
 2026,Peru,82.54,2011
-2039,Philippines,,1992
 2040,Philippines,81.32,1998
 2041,Philippines,84.1,2004
 2042,Philippines,74.98,2010
@@ -542,7 +504,6 @@
 2128,Russian Federation,65.27,2012
 2132,Rwanda,96.55,2003
 2133,Rwanda,97.51,2010
-2149,Saint Kitts and Nevis,,1958
 2202,Sao Tome and Principe,60.0,1991
 2203,Sao Tome and Principe,77.29,1996
 2204,Sao Tome and Principe,70.55,2001
@@ -571,13 +532,11 @@
 2272,Slovakia,43.48,2004
 2273,Slovakia,51.67,2009
 2274,Slovakia,50.48,2014
-2285,Slovenia,,1990
 2286,Slovenia,85.84,1992
 2287,Slovenia,68.65,1997
 2288,Slovenia,65.24,2002
 2289,Slovenia,58.45,2007
 2290,Slovenia,42.41,2012
-2304,Somalia,,1986
 2341,Sri Lanka,81.06,1982
 2342,Sri Lanka,55.32,1988
 2343,Sri Lanka,70.48,1994
@@ -586,7 +545,6 @@
 2346,Sri Lanka,74.5,2010
 2347,Sri Lanka,81.52,2015
 2354,Sudan,72.2,1996
-2355,Sudan,,2000
 2356,Sudan,72.0,2010
 2357,Sudan,46.4,2015
 2416,Syrian Arab Republic,73.42,2014
@@ -624,10 +582,6 @@
 2565,Ukraine,77.28,2004
 2566,Ukraine,69.7,2010
 2567,Ukraine,60.82,2014
-2629,United States,,1948
-2630,United States,,1952
-2631,United States,,1956
-2632,United States,,1960
 2633,United States,95.83,1964
 2634,United States,89.66,1968
 2635,United States,87.09,1972
@@ -656,10 +610,8 @@
 2672,Uruguay,89.18,2009
 2673,Uruguay,88.57,2014
 2679,Uzbekistan,94.0,1991
-2680,Uzbekistan,,2000
 2681,Uzbekistan,90.6,2007
 2682,Uzbekistan,91.08,2015
-2705,Venezuela,,1947
 2706,Venezuela,93.42,1958
 2707,Venezuela,92.21,1963
 2708,Venezuela,96.73,1968
@@ -686,16 +638,15 @@
 2754,Zambia,45.43,2008
 2755,Zambia,53.65,2011
 2756,Zambia,32.36,2015
-2766,Zimbabwe,,1990
 2767,Zimbabwe,32.3,1996
 2768,Zimbabwe,54.33,2002
 2769,Zimbabwe,42.37,2008
 2770,Zimbabwe,54.38,2013
-0,World Average,67.37333333333333,1945
-1,World Average,74.88666666666667,1946
+0,World Average,67.3733333333,1945
+1,World Average,74.8866666667,1946
 2,World Average,100.0,1947
 3,World Average,69.6725,1948
-4,World Average,69.77799999999999,1950
+4,World Average,69.778,1950
 5,World Average,92.42,1951
 6,World Average,75.2675,1952
 7,World Average,67.25,1953
@@ -703,59 +654,58 @@
 9,World Average,59.68,1955
 10,World Average,79.036,1956
 11,World Average,97.16,1957
-12,World Average,78.43833333333333,1958
+12,World Average,78.4383333333,1958
 13,World Average,58.4,1959
 14,World Average,73.0575,1960
-15,World Average,81.88999999999999,1962
-16,World Average,88.66833333333334,1963
+15,World Average,81.89,1962
+16,World Average,88.6683333333,1963
 17,World Average,82.196,1964
 18,World Average,90.095,1965
 19,World Average,72.774,1966
 20,World Average,38.84,1967
-21,World Average,79.88428571428571,1968
+21,World Average,79.8842857143,1968
 22,World Average,77.08,1969
 23,World Average,71.2225,1970
-24,World Average,83.81333333333333,1971
+24,World Average,83.8133333333,1971
 25,World Average,79.555,1972
 26,World Average,76.1725,1973
-27,World Average,74.95500000000001,1974
-28,World Average,76.21666666666667,1976
-29,World Average,,1977
-30,World Average,75.22333333333331,1978
-31,World Average,68.74666666666667,1979
-32,World Average,84.43571428571428,1980
-33,World Average,72.32666666666667,1981
-34,World Average,73.99428571428572,1982
+27,World Average,74.955,1974
+28,World Average,76.2166666667,1976
+30,World Average,75.2233333333,1978
+31,World Average,68.7466666667,1979
+32,World Average,84.4357142857,1980
+33,World Average,72.3266666667,1981
+34,World Average,73.9942857143,1982
 35,World Average,78.224,1983
 36,World Average,80.75,1984
 37,World Average,79.3375,1985
-38,World Average,78.96999999999998,1986
+38,World Average,78.97,1986
 39,World Average,78.3,1987
-40,World Average,75.90666666666667,1988
-41,World Average,74.96555555555557,1989
+40,World Average,75.9066666667,1988
+41,World Average,74.9655555556,1989
 42,World Average,66.186,1990
-43,World Average,61.477777777777774,1991
-44,World Average,74.13384615384615,1992
-45,World Average,75.36055555555556,1993
+43,World Average,61.4777777778,1991
+44,World Average,74.1338461538,1992
+45,World Average,75.3605555556,1993
 46,World Average,78.14,1994
-47,World Average,69.14899999999999,1995
-48,World Average,69.7060714285714,1996
-49,World Average,68.46727272727273,1997
-50,World Average,72.85833333333333,1998
-51,World Average,67.97349999999999,1999
-52,World Average,71.0404761904762,2000
-53,World Average,70.57882352941175,2001
-54,World Average,68.0888888888889,2002
-55,World Average,67.08214285714286,2003
-56,World Average,69.47821428571429,2004
-57,World Average,64.56263157894738,2005
-58,World Average,67.4432142857143,2006
-59,World Average,68.33333333333333,2007
-60,World Average,68.17687500000001,2008
-61,World Average,66.35217391304349,2009
-62,World Average,67.37285714285714,2010
-63,World Average,64.67346153846154,2011
-64,World Average,68.50142857142856,2012
-65,World Average,66.89842105263159,2013
-66,World Average,63.267999999999994,2014
+47,World Average,69.149,1995
+48,World Average,69.7060714286,1996
+49,World Average,68.4672727273,1997
+50,World Average,72.8583333333,1998
+51,World Average,67.9735,1999
+52,World Average,71.0404761905,2000
+53,World Average,70.5788235294,2001
+54,World Average,68.0888888889,2002
+55,World Average,67.0821428571,2003
+56,World Average,69.4782142857,2004
+57,World Average,64.5626315789,2005
+58,World Average,67.4432142857,2006
+59,World Average,68.3333333333,2007
+60,World Average,68.176875,2008
+61,World Average,66.352173913,2009
+62,World Average,67.3728571429,2010
+63,World Average,64.6734615385,2011
+64,World Average,68.5014285714,2012
+65,World Average,66.8984210526,2013
+66,World Average,63.268,2014
 67,World Average,63.899,2015
