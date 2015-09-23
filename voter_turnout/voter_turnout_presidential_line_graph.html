@@ -2,13 +2,38 @@
 <meta charset="utf-8">
 <style>
 
+	body {
+      font: 10px sans-serif;
+    }
 
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .x.axis path {
+      display: none;
+    }
+
+    .datapoint {
+      r: 2;
+    }
+
+    .line {
+      fill: none;
+      stroke: #5aae61;
+      stroke-width: 1.5px;
+    }
 
 </style>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
 <script>
+
+
 	var margin = {top: 20, right: 20, bottom: 30, left: 40},
 		width = 960 - margin.left - margin.right,
 		height = 500 - margin.top - margin.bottom;
@@ -28,7 +53,9 @@
 
 	var format = d3.time.format('%Y');
 
-	d3.csv('Voter_Turnout_IDEA_VT_Presidential.csv', function(data) {
+	d3.csv('Voter_Turnout_IDEA_VT_Presidential.csv', function(error, data) {
+
+		if (error) throw error;
 
 		data.forEach(function(d) { 
 			d.Year = format.parse(d.Year);
@@ -70,7 +97,25 @@
 			.attr('class', 'y_axis axis')
 			.call(yAxis);
 
-	});
+		var countryLine = d3.svg.line()
+			.x(function(d) { return x(d.Year); })
+			.y(function(d) { return y(d['Voter Turnout']); });
+
+		var dataNest = d3.nest()
+			.key(function(d) { return d.Country; })
+			.entries(data);
+
+		dataNest.forEach(function(d) { 
+			svg.append('path')
+			.attr('class', 'line')
+			.attr('d', countryLine(d.values))
+		});
+
+
+
+
+
+		});
 </script>
 
 </body>

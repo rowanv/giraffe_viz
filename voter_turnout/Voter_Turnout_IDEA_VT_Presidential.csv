@@ -1,0 +1,761 @@
+,Country,Voter Turnout,Year
+2,Afghanistan,83.66,2004
+3,Afghanistan,38.8,2009
+4,Afghanistan,38.9,2014
+18,Algeria,75.69,1995
+19,Algeria,60.91,1999
+20,Algeria,58.07,2004
+21,Algeria,74.56,2009
+22,Algeria,49.42,2014
+33,Angola,90.37,1992
+83,Argentina,83.39,1946
+84,Argentina,87.95,1951
+85,Argentina,90.86,1958
+86,Argentina,85.59,1963
+87,Argentina,83.18,1973
+88,Argentina,83.25,1983
+89,Argentina,85.02,1989
+90,Argentina,80.96,1995
+91,Argentina,78.61,1999
+92,Argentina,76.9,2003
+93,Argentina,71.81,2007
+94,Argentina,79.39,2011
+100,Armenia,60.32,1996
+101,Armenia,63.48,1998
+102,Armenia,68.43,2003
+103,Armenia,69.81,2008
+104,Armenia,60.18,2013
+164,Austria,96.89,1951
+165,Austria,97.16,1957
+166,Austria,95.58,1963
+167,Austria,95.99,1965
+168,Austria,95.29,1971
+169,Austria,94.06,1974
+170,Austria,91.63,1980
+171,Austria,87.29,1986
+172,Austria,80.91,1992
+173,Austria,74.4,1998
+174,Austria,71.6,2004
+175,Austria,53.57,2010
+181,Azerbaijan,85.85,1993
+182,Azerbaijan,78.94,1998
+183,Azerbaijan,71.23,2003
+184,Azerbaijan,75.35,2008
+185,Azerbaijan,71.63,2013
+209,Bangladesh,,1978
+210,Bangladesh,55.65,1981
+211,Bangladesh,54.09,1986
+231,Belarus,69.9,1994
+232,Belarus,83.86,2001
+233,Belarus,92.94,2006
+234,Belarus,90.65,2010
+280,Benin,64.07,1991
+281,Benin,77.6,1996
+282,Benin,54.17,2001
+283,Benin,69.54,2006
+284,Benin,84.82,2011
+311,Bolivia,85.04,1956
+312,Bolivia,75.98,1960
+313,Bolivia,91.91,1964
+314,Bolivia,86.57,1966
+315,Bolivia,102.62,1978
+316,Bolivia,90.5,1979
+317,Bolivia,74.32,1980
+318,Bolivia,81.97,1985
+319,Bolivia,73.16,1989
+320,Bolivia,72.16,1993
+321,Bolivia,71.36,1997
+322,Bolivia,72.06,2002
+323,Bolivia,84.51,2005
+324,Bolivia,94.55,2009
+325,Bolivia,91.86,2014
+333,Bosnia and Herzegovina,60.32,1996
+334,Bosnia and Herzegovina,70.74,1998
+335,Bosnia and Herzegovina,55.45,2002
+336,Bosnia and Herzegovina,50.51,2006
+337,Bosnia and Herzegovina,56.46,2010
+338,Bosnia and Herzegovina,54.54,2014
+368,Brazil,83.12,1945
+369,Brazil,72.06,1950
+370,Brazil,59.68,1955
+371,Brazil,80.98,1960
+372,Brazil,88.07,1989
+373,Brazil,84.93,1994
+374,Brazil,78.51,1998
+375,Brazil,79.53,2002
+376,Brazil,83.25,2006
+377,Brazil,78.5,2010
+378,Brazil,78.9,2014
+390,Bulgaria,75.17,1992
+391,Bulgaria,49.79,1996
+392,Bulgaria,54.92,2001
+393,Bulgaria,42.62,2006
+394,Bulgaria,48.25,2011
+402,Burkina Faso,35.25,1991
+403,Burkina Faso,56.08,1998
+404,Burkina Faso,57.66,2005
+405,Burkina Faso,54.82,2010
+412,Burundi,97.31,1993
+413,Burundi,76.98,2010
+414,Burundi,73.44,2015
+427,Cameroon,91.4,1988
+428,Cameroon,71.87,1992
+429,Cameroon,87.0,1997
+430,Cameroon,79.52,2004
+431,Cameroon,68.28,2011
+459,Cape Verde,58.94,2001
+460,Cape Verde,53.1,2006
+461,Cape Verde,59.9,2011
+468,Central African Republic,67.93,1993
+469,Central African Republic,59.14,1999
+470,Central African Republic,72.65,2005
+471,Central African Republic,61.21,2011
+475,Chad,74.9,1996
+476,Chad,61.12,2001
+477,Chad,53.08,2006
+478,Chad,55.71,2011
+494,Chile,75.93,1946
+495,Chile,86.61,1952
+496,Chile,83.5,1958
+497,Chile,86.81,1964
+498,Chile,83.47,1970
+499,Chile,94.72,1989
+500,Chile,90.47,1993
+501,Chile,90.63,2000
+502,Chile,87.12,2006
+503,Chile,86.94,2010
+504,Chile,41.98,2013
+529,Colombia,46.45,2002
+530,Colombia,45.11,2006
+531,Colombia,44.35,2010
+532,Colombia,47.9,2014
+538,Comoros,60.27,1990
+539,Comoros,61.95,1996
+540,Comoros,76.28,2002
+541,Comoros,57.26,2006
+542,Comoros,52.8,2010
+545,"Congo, Democratic Republic of",,1970
+546,"Congo, Democratic Republic of",,1977
+547,"Congo, Democratic Republic of",,1984
+548,"Congo, Democratic Republic of",65.36,2006
+549,"Congo, Democratic Republic of",59.05,2011
+572,Costa Rica,60.02,1948
+573,Costa Rica,67.25,1953
+574,Costa Rica,64.7,1958
+575,Costa Rica,80.87,1962
+576,Costa Rica,81.4,1966
+577,Costa Rica,83.34,1970
+578,Costa Rica,79.92,1974
+579,Costa Rica,81.27,1978
+580,Costa Rica,78.63,1982
+581,Costa Rica,84.85,1986
+582,Costa Rica,81.81,1990
+583,Costa Rica,81.11,1994
+584,Costa Rica,69.99,1998
+585,Costa Rica,60.22,2002
+586,Costa Rica,65.21,2006
+587,Costa Rica,69.12,2010
+588,Costa Rica,55.64,2014
+592,Côte d'Ivoire,70.0,1990
+593,Côte d'Ivoire,45.33,1995
+594,Côte d'Ivoire,37.42,2000
+595,Côte d'Ivoire,81.12,2010
+604,Croatia,74.9,1992
+605,Croatia,54.62,1997
+606,Croatia,60.88,2000
+607,Croatia,51.04,2005
+608,Croatia,50.13,2010
+609,Croatia,59.05,2015
+628,Cyprus,93.27,1993
+629,Cyprus,93.37,1998
+630,Cyprus,90.55,2003
+631,Cyprus,90.84,2008
+632,Cyprus,81.58,2013
+644,Czech Republic,59.08,2013
+684,Djibouti,50.26,1993
+685,Djibouti,56.28,1999
+686,Djibouti,78.9,2005
+687,Djibouti,75.45,2011
+717,Dominican Republic,100.0,1947
+718,Dominican Republic,,1952
+719,Dominican Republic,,1957
+720,Dominican Republic,,1962
+721,Dominican Republic,,1966
+722,Dominican Republic,,1970
+723,Dominican Republic,75.68,1974
+724,Dominican Republic,72.5,1978
+725,Dominican Republic,73.89,1982
+726,Dominican Republic,69.49,1986
+727,Dominican Republic,59.79,1990
+728,Dominican Republic,76.56,1996
+729,Dominican Republic,76.14,2000
+730,Dominican Republic,72.84,2004
+731,Dominican Republic,71.36,2008
+732,Dominican Republic,70.23,2012
+735,East Timor,97.26,2002
+736,East Timor,81.0,2007
+737,East Timor,73.12,2012
+757,Ecuador,61.84,1948
+758,Ecuador,64.91,1952
+759,Ecuador,73.41,1956
+760,Ecuador,76.01,1960
+761,Ecuador,77.49,1968
+762,Ecuador,72.83,1978
+763,Ecuador,80.49,1979
+764,Ecuador,78.13,1984
+765,Ecuador,77.7,1988
+766,Ecuador,73.1,1992
+767,Ecuador,71.71,1996
+768,Ecuador,70.13,1998
+769,Ecuador,62.89,2002
+770,Ecuador,76.01,2006
+771,Ecuador,75.28,2009
+772,Ecuador,81.08,2013
+783,Egypt,22.95,2005
+784,Egypt,51.85,2012
+785,Egypt,47.5,2014
+806,El Salvador,,1945
+807,El Salvador,,1950
+808,El Salvador,,1956
+809,El Salvador,,1962
+810,El Salvador,38.84,1967
+811,El Salvador,72.02,1972
+812,El Salvador,,1977
+813,El Salvador,,1984
+814,El Salvador,54.7,1989
+815,El Salvador,46.16,1994
+816,El Salvador,38.57,1999
+817,El Salvador,66.16,2004
+818,El Salvador,61.91,2009
+819,El Salvador,60.17,2014
+823,Equatorial Guinea,97.97,2002
+824,Equatorial Guinea,93.35,2009
+875,Finland,63.76,1950
+876,Finland,73.35,1956
+877,Finland,81.46,1962
+878,Finland,69.91,1968
+879,Finland,64.26,1978
+880,Finland,81.31,1982
+881,Finland,77.83,1988
+882,Finland,76.96,1994
+883,Finland,76.8,2000
+884,Finland,74.05,2006
+885,Finland,68.86,2012
+912,France,84.2,1965
+913,France,77.08,1969
+914,France,84.23,1974
+915,France,83.38,1981
+916,France,84.2,1988
+917,France,79.68,1995
+918,France,79.71,2002
+919,France,83.97,2007
+920,France,80.35,2012
+925,Gabon,99.95,1986
+926,Gabon,88.08,1993
+927,Gabon,53.83,1998
+928,Gabon,63.47,2005
+929,Gabon,44.29,2009
+939,Gambia,80.0,1996
+940,Gambia,89.71,2001
+941,Gambia,58.58,2006
+942,Gambia,82.55,2011
+950,Georgia,68.87,1995
+951,Georgia,75.86,2000
+952,Georgia,87.97,2004
+953,Georgia,56.19,2008
+954,Georgia,46.96,2013
+990,Ghana,50.16,1992
+991,Ghana,78.21,1996
+992,Ghana,61.74,2000
+993,Ghana,85.12,2004
+994,Ghana,72.91,2008
+995,Ghana,80.15,2012
+1060,Guatemala,71.59,1950
+1061,Guatemala,66.85,1958
+1062,Guatemala,56.27,1966
+1063,Guatemala,53.82,1970
+1064,Guatemala,46.41,1974
+1065,Guatemala,36.52,1978
+1066,Guatemala,45.83,1982
+1067,Guatemala,60.21,1985
+1068,Guatemala,56.44,1990
+1069,Guatemala,45.26,1991
+1070,Guatemala,36.91,1995
+1071,Guatemala,40.39,1999
+1072,Guatemala,46.78,2003
+1073,Guatemala,48.15,2007
+1074,Guatemala,60.83,2011
+1078,Guinea,78.46,1993
+1079,Guinea,69.83,1998
+1080,Guinea,82.76,2003
+1081,Guinea,67.87,2010
+1087,Guinea-Bissau,79.83,1994
+1088,Guinea-Bissau,71.89,1999
+1089,Guinea-Bissau,87.63,2005
+1090,Guinea-Bissau,61.09,2009
+1091,Guinea-Bissau,89.29,2014
+1109,Haiti,,1950
+1110,Haiti,,1957
+1111,Haiti,,1988
+1112,Haiti,50.16,1990
+1113,Haiti,,1995
+1114,Haiti,78.29,2000
+1115,Haiti,59.26,2006
+1116,Haiti,22.36,2011
+1133,Honduras,85.97,1948
+1134,Honduras,61.41,1954
+1135,Honduras,67.54,1971
+1136,Honduras,77.95,1981
+1137,Honduras,84.02,1985
+1138,Honduras,76.03,1989
+1139,Honduras,64.97,1993
+1140,Honduras,72.09,1997
+1141,Honduras,66.34,2001
+1142,Honduras,55.08,2005
+1143,Honduras,49.88,2009
+1144,Honduras,59.14,2013
+1175,Iceland,82.03,1952
+1176,Iceland,92.16,1968
+1177,Iceland,90.5,1980
+1178,Iceland,72.8,1988
+1179,Iceland,85.9,1996
+1180,Iceland,62.92,2004
+1181,Iceland,69.32,2012
+1208,Indonesia,68.51,2004
+1209,Indonesia,71.91,2009
+1210,Indonesia,69.58,2014
+1217,"Iran, Islamic Republic of",,1993
+1218,"Iran, Islamic Republic of",72.76,2001
+1219,"Iran, Islamic Republic of",59.76,2005
+1220,"Iran, Islamic Republic of",84.77,2009
+1221,"Iran, Islamic Republic of",72.71,2013
+1251,Ireland,60.24,1945
+1252,Ireland,58.4,1959
+1253,Ireland,65.35,1966
+1254,Ireland,47.6,1973
+1255,Ireland,64.1,1990
+1256,Ireland,46.71,1997
+1257,Ireland,56.11,2011
+1359,Kazakhstan,85.77,1999
+1360,Kazakhstan,76.78,2005
+1361,Kazakhstan,89.99,2011
+1362,Kazakhstan,95.21,2015
+1368,Kenya,66.81,1992
+1369,Kenya,83.86,1997
+1370,Kenya,57.18,2002
+1371,Kenya,69.09,2007
+1372,Kenya,85.91,2013
+1384,Kiribati,73.5,1978
+1385,Kiribati,82.4,1982
+1386,Kiribati,69.3,1983
+1387,Kiribati,78.3,1987
+1388,Kiribati,73.7,1991
+1389,Kiribati,,1994
+1390,Kiribati,,1998
+1391,Kiribati,,2003
+1392,Kiribati,57.08,2007
+1393,Kiribati,68.0,2012
+1407,"Korea, Republic of",,1992
+1408,"Korea, Republic of",80.65,1997
+1409,"Korea, Republic of",70.83,2002
+1410,"Korea, Republic of",63.01,2007
+1411,"Korea, Republic of",75.84,2012
+1433,Kyrgyzstan,86.19,1995
+1434,Kyrgyzstan,77.26,2000
+1435,Kyrgyzstan,74.97,2005
+1436,Kyrgyzstan,,2009
+1437,Kyrgyzstan,61.28,2011
+1472,Liberia,61.04,2005
+1473,Liberia,38.6,2011
+1504,Lithuania,78.62,1993
+1505,Lithuania,73.66,1998
+1506,Lithuania,52.65,2003
+1507,Lithuania,52.46,2004
+1508,Lithuania,51.76,2009
+1509,Lithuania,47.37,2014
+1541,"Macedonia, former Yugoslav Republic (1993-)",77.76,1994
+1542,"Macedonia, former Yugoslav Republic (1993-)",69.56,1999
+1543,"Macedonia, former Yugoslav Republic (1993-)",53.64,2004
+1544,"Macedonia, former Yugoslav Republic (1993-)",42.63,2009
+1545,"Macedonia, former Yugoslav Republic (1993-)",54.38,2014
+1554,Madagascar,74.67,1992
+1555,Madagascar,68.49,1993
+1556,Madagascar,60.93,1996
+1557,Madagascar,66.85,2001
+1558,Madagascar,61.93,2006
+1559,Madagascar,50.72,2013
+1565,Malawi,80.54,1994
+1566,Malawi,93.76,1999
+1567,Malawi,63.59,2004
+1568,Malawi,78.28,2009
+1569,Malawi,70.75,2014
+1586,Maldives,76.67,1998
+1587,Maldives,85.38,2008
+1588,Maldives,91.43,2013
+1594,Mali,28.41,1997
+1595,Mali,38.57,2002
+1596,Mali,36.24,2007
+1597,Mali,45.78,2013
+1627,Mauritania,46.55,1992
+1628,Mauritania,74.73,1997
+1629,Mauritania,60.86,2003
+1630,Mauritania,70.16,2007
+1631,Mauritania,61.51,2009
+1632,Mauritania,56.46,2014
+1667,Mexico,,1946
+1668,Mexico,,1952
+1669,Mexico,,1958
+1670,Mexico,69.33,1964
+1671,Mexico,64.26,1970
+1672,Mexico,64.55,1976
+1673,Mexico,74.84,1982
+1674,Mexico,50.14,1988
+1675,Mexico,78.5,1994
+1676,Mexico,63.96,2000
+1677,Mexico,58.55,2006
+1678,Mexico,63.14,2012
+1695,"Moldova, Republic of",71.64,1996
+1713,Mongolia,92.73,1993
+1714,Mongolia,85.06,1997
+1715,Mongolia,82.94,2001
+1716,Mongolia,74.98,2005
+1717,Mongolia,73.59,2009
+1718,Mongolia,66.79,2013
+1722,Montenegro,48.38,2003
+1723,Montenegro,68.7,2008
+1724,Montenegro,63.9,2013
+1742,Mozambique,88.03,1994
+1743,Mozambique,69.51,1999
+1744,Mozambique,36.42,2004
+1745,Mozambique,44.63,2009
+1746,Mozambique,48.64,2014
+1756,Namibia,74.18,1994
+1757,Namibia,62.06,1999
+1758,Namibia,85.47,2004
+1759,Namibia,,2009
+1760,Namibia,71.76,2014
+1856,Nicaragua,,1947
+1857,Nicaragua,,1950
+1858,Nicaragua,,1957
+1859,Nicaragua,79.13,1963
+1860,Nicaragua,,1967
+1861,Nicaragua,69.43,1974
+1862,Nicaragua,75.42,1984
+1863,Nicaragua,86.23,1990
+1864,Nicaragua,76.39,1996
+1865,Nicaragua,74.91,2001
+1866,Nicaragua,61.23,2006
+1867,Nicaragua,79.09,2011
+1874,Niger,35.22,1993
+1875,Niger,66.36,1996
+1876,Niger,39.4,1999
+1877,Niger,44.98,2004
+1878,Niger,48.96,2011
+1887,Nigeria,35.25,1979
+1888,Nigeria,,1993
+1889,Nigeria,52.26,1999
+1890,Nigeria,69.08,2003
+1891,Nigeria,57.49,2007
+1892,Nigeria,53.68,2011
+1893,Nigeria,43.65,2015
+1931,Palau,79.99,1980
+1932,Palau,83.99,1984
+1933,Palau,82.5,1988
+1934,Palau,83.43,1992
+1935,Palau,79.27,1996
+1936,Palau,81.15,2000
+1937,Palau,74.79,2004
+1938,Palau,67.66,2008
+1939,Palau,52.76,2012
+1942,"Palestinian Territory, Occupied",72.05,1996
+1943,"Palestinian Territory, Occupied",45.56,2005
+1952,Panama,70.86,1948
+1953,Panama,67.52,1952
+1954,Panama,79.34,1956
+1955,Panama,59.26,1960
+1956,Panama,67.1,1964
+1957,Panama,60.1,1968
+1958,Panama,73.45,1984
+1959,Panama,63.99,1989
+1960,Panama,73.7,1994
+1961,Panama,76.17,1999
+1962,Panama,76.9,2004
+1963,Panama,68.57,2009
+1964,Panama,76.76,2014
+1989,Paraguay,,1953
+1990,Paraguay,,1958
+1991,Paraguay,85.12,1963
+1992,Paraguay,73.14,1968
+1993,Paraguay,77.39,1973
+1994,Paraguay,85.96,1978
+1995,Paraguay,92.62,1983
+1996,Paraguay,92.17,1988
+1997,Paraguay,54.03,1989
+1998,Paraguay,,1993
+1999,Paraguay,80.54,1998
+2000,Paraguay,64.2,2003
+2001,Paraguay,60.34,2008
+2002,Paraguay,68.02,2013
+2014,Peru,58.76,1945
+2015,Peru,70.96,1950
+2016,Peru,84.04,1956
+2017,Peru,88.6,1962
+2018,Peru,94.38,1963
+2019,Peru,81.83,1980
+2020,Peru,91.15,1985
+2021,Peru,79.66,1990
+2022,Peru,72.96,1995
+2023,Peru,82.58,2000
+2024,Peru,81.37,2001
+2025,Peru,87.71,2006
+2026,Peru,82.54,2011
+2039,Philippines,,1992
+2040,Philippines,81.32,1998
+2041,Philippines,84.1,2004
+2042,Philippines,74.98,2010
+2064,Poland,53.4,1990
+2065,Poland,68.23,1995
+2066,Poland,61.12,2000
+2067,Poland,50.99,2005
+2068,Poland,55.31,2010
+2069,Poland,55.34,2015
+2091,Portugal,75.42,1976
+2092,Portugal,84.18,1980
+2093,Portugal,78.15,1986
+2094,Portugal,61.92,1991
+2095,Portugal,66.29,1996
+2096,Portugal,50.03,2001
+2097,Portugal,61.53,2006
+2098,Portugal,46.52,2011
+2101,Republic of The Congo (Brazzaville),74.7,2002
+2102,Republic of The Congo (Brazzaville),66.42,2009
+2112,Romania,75.9,1996
+2113,Romania,56.62,2000
+2114,Romania,55.21,2004
+2115,Romania,58.02,2009
+2116,Romania,64.11,2014
+2123,Russian Federation,74.66,1991
+2124,Russian Federation,68.88,1996
+2125,Russian Federation,68.64,2000
+2126,Russian Federation,64.39,2004
+2127,Russian Federation,69.71,2008
+2128,Russian Federation,65.27,2012
+2132,Rwanda,96.55,2003
+2133,Rwanda,97.51,2010
+2149,Saint Kitts and Nevis,,1958
+2202,Sao Tome and Principe,60.0,1991
+2203,Sao Tome and Principe,77.29,1996
+2204,Sao Tome and Principe,70.55,2001
+2205,Sao Tome and Principe,64.95,2006
+2206,Sao Tome and Principe,74.09,2011
+2216,Senegal,58.2,1983
+2217,Senegal,58.7,1988
+2218,Senegal,51.5,1993
+2219,Senegal,62.23,2000
+2220,Senegal,70.62,2007
+2221,Senegal,57.12,2012
+2226,Serbia,68.12,2008
+2227,Serbia,46.26,2012
+2232,Seychelles,86.53,1993
+2233,Seychelles,86.7,1998
+2234,Seychelles,93.25,2001
+2235,Seychelles,88.69,2006
+2236,Seychelles,85.26,2011
+2243,Sierra Leone,68.59,1996
+2244,Sierra Leone,81.43,2002
+2245,Sierra Leone,68.61,2007
+2246,Sierra Leone,91.05,2012
+2258,Singapore,94.48,1993
+2259,Singapore,94.65,2011
+2271,Slovakia,75.42,1999
+2272,Slovakia,43.48,2004
+2273,Slovakia,51.67,2009
+2274,Slovakia,50.48,2014
+2285,Slovenia,,1990
+2286,Slovenia,85.84,1992
+2287,Slovenia,68.65,1997
+2288,Slovenia,65.24,2002
+2289,Slovenia,58.45,2007
+2290,Slovenia,42.41,2012
+2304,Somalia,,1986
+2341,Sri Lanka,81.06,1982
+2342,Sri Lanka,55.32,1988
+2343,Sri Lanka,70.48,1994
+2344,Sri Lanka,73.31,1999
+2345,Sri Lanka,72.91,2005
+2346,Sri Lanka,74.5,2010
+2347,Sri Lanka,81.52,2015
+2354,Sudan,72.2,1996
+2355,Sudan,,2000
+2356,Sudan,72.0,2010
+2357,Sudan,46.4,2015
+2416,Syrian Arab Republic,73.42,2014
+2426,Taiwan,76.04,1996
+2427,Taiwan,82.69,2000
+2428,Taiwan,80.28,2004
+2429,Taiwan,76.33,2008
+2430,Taiwan,74.38,2012
+2436,Tajikistan,88.33,1994
+2437,Tajikistan,91.01,2006
+2438,Tajikistan,90.16,2013
+2443,"Tanzania, United Republic of",76.67,1995
+2444,"Tanzania, United Republic of",84.43,2000
+2445,"Tanzania, United Republic of",72.23,2005
+2446,"Tanzania, United Republic of",42.84,2010
+2473,Togo,69.81,1998
+2474,Togo,71.99,2003
+2475,Togo,63.58,2005
+2476,Togo,64.68,2010
+2477,Togo,60.94,2015
+2511,Tunisia,94.9,1994
+2512,Tunisia,89.7,1999
+2513,Tunisia,91.52,2004
+2514,Tunisia,89.45,2009
+2515,Tunisia,60.35,2014
+2530,Turkey,74.13,2014
+2534,Turkmenistan,98.72,2007
+2535,Turkmenistan,96.7,2012
+2552,Uganda,72.6,1996
+2553,Uganda,70.31,2001
+2554,Uganda,69.19,2006
+2555,Uganda,59.29,2011
+2563,Ukraine,71.63,1994
+2564,Ukraine,74.92,1999
+2565,Ukraine,77.28,2004
+2566,Ukraine,69.7,2010
+2567,Ukraine,60.82,2014
+2629,United States,,1948
+2630,United States,,1952
+2631,United States,,1956
+2632,United States,,1960
+2633,United States,95.83,1964
+2634,United States,89.66,1968
+2635,United States,87.09,1972
+2636,United States,88.68,1976
+2637,United States,88.6,1980
+2638,United States,87.75,1984
+2639,United States,86.2,1988
+2640,United States,89.96,1992
+2641,United States,82.26,1996
+2642,United States,85.55,2000
+2643,United States,88.5,2004
+2644,United States,70.33,2008
+2645,United States,66.66,2012
+2660,Uruguay,65.34,1946
+2661,Uruguay,70.52,1950
+2662,Uruguay,67.87,1954
+2663,Uruguay,71.3,1958
+2664,Uruguay,76.63,1962
+2665,Uruguay,74.28,1966
+2666,Uruguay,88.61,1971
+2667,Uruguay,85.76,1984
+2668,Uruguay,84.97,1989
+2669,Uruguay,91.44,1994
+2670,Uruguay,91.84,1999
+2671,Uruguay,88.29,2004
+2672,Uruguay,89.18,2009
+2673,Uruguay,88.57,2014
+2679,Uzbekistan,94.0,1991
+2680,Uzbekistan,,2000
+2681,Uzbekistan,90.6,2007
+2682,Uzbekistan,91.08,2015
+2705,Venezuela,,1947
+2706,Venezuela,93.42,1958
+2707,Venezuela,92.21,1963
+2708,Venezuela,96.73,1968
+2709,Venezuela,96.52,1973
+2710,Venezuela,87.55,1978
+2711,Venezuela,87.75,1983
+2712,Venezuela,81.92,1988
+2713,Venezuela,60.16,1993
+2714,Venezuela,63.45,1998
+2715,Venezuela,56.31,2000
+2716,Venezuela,74.69,2006
+2717,Venezuela,80.28,2012
+2718,Venezuela,79.64,2013
+2730,Yemen,65.16,2006
+2731,Yemen,64.78,2012
+2736,"Yugoslavia, FR/Union of Serbia and Montenegro",71.55,2000
+2737,"Yugoslavia, FR/Union of Serbia and Montenegro",55.5,2002
+2738,"Yugoslavia, FR/Union of Serbia and Montenegro",38.79,2003
+2739,"Yugoslavia, FR/Union of Serbia and Montenegro",47.72,2004
+2750,Zambia,44.44,1991
+2751,Zambia,55.52,1996
+2752,Zambia,67.81,2001
+2753,Zambia,70.77,2006
+2754,Zambia,45.43,2008
+2755,Zambia,53.65,2011
+2756,Zambia,32.36,2015
+2766,Zimbabwe,,1990
+2767,Zimbabwe,32.3,1996
+2768,Zimbabwe,54.33,2002
+2769,Zimbabwe,42.37,2008
+2770,Zimbabwe,54.38,2013
+0,World Average,67.37333333333333,1945
+1,World Average,74.88666666666667,1946
+2,World Average,100.0,1947
+3,World Average,69.6725,1948
+4,World Average,69.77799999999999,1950
+5,World Average,92.42,1951
+6,World Average,75.2675,1952
+7,World Average,67.25,1953
+8,World Average,64.64,1954
+9,World Average,59.68,1955
+10,World Average,79.036,1956
+11,World Average,97.16,1957
+12,World Average,78.43833333333333,1958
+13,World Average,58.4,1959
+14,World Average,73.0575,1960
+15,World Average,81.88999999999999,1962
+16,World Average,88.66833333333334,1963
+17,World Average,82.196,1964
+18,World Average,90.095,1965
+19,World Average,72.774,1966
+20,World Average,38.84,1967
+21,World Average,79.88428571428571,1968
+22,World Average,77.08,1969
+23,World Average,71.2225,1970
+24,World Average,83.81333333333333,1971
+25,World Average,79.555,1972
+26,World Average,76.1725,1973
+27,World Average,74.95500000000001,1974
+28,World Average,76.21666666666667,1976
+29,World Average,,1977
+30,World Average,75.22333333333331,1978
+31,World Average,68.74666666666667,1979
+32,World Average,84.43571428571428,1980
+33,World Average,72.32666666666667,1981
+34,World Average,73.99428571428572,1982
+35,World Average,78.224,1983
+36,World Average,80.75,1984
+37,World Average,79.3375,1985
+38,World Average,78.96999999999998,1986
+39,World Average,78.3,1987
+40,World Average,75.90666666666667,1988
+41,World Average,74.96555555555557,1989
+42,World Average,66.186,1990
+43,World Average,61.477777777777774,1991
+44,World Average,74.13384615384615,1992
+45,World Average,75.36055555555556,1993
+46,World Average,78.14,1994
+47,World Average,69.14899999999999,1995
+48,World Average,69.7060714285714,1996
+49,World Average,68.46727272727273,1997
+50,World Average,72.85833333333333,1998
+51,World Average,67.97349999999999,1999
+52,World Average,71.0404761904762,2000
+53,World Average,70.57882352941175,2001
+54,World Average,68.0888888888889,2002
+55,World Average,67.08214285714286,2003
+56,World Average,69.47821428571429,2004
+57,World Average,64.56263157894738,2005
+58,World Average,67.4432142857143,2006
+59,World Average,68.33333333333333,2007
+60,World Average,68.17687500000001,2008
+61,World Average,66.35217391304349,2009
+62,World Average,67.37285714285714,2010
+63,World Average,64.67346153846154,2011
+64,World Average,68.50142857142856,2012
+65,World Average,66.89842105263159,2013
+66,World Average,63.267999999999994,2014
+67,World Average,63.899,2015
