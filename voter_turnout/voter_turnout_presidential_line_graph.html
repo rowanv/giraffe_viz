@@ -28,6 +28,17 @@
       opacity: 0.2;
     }
 
+    div.tooltip {	
+	    position: absolute;			
+	    text-align: center;					
+	    padding: 4px;			
+	    background: white;	
+	    border: 0px;		
+	    border-radius: 8px;			
+	    pointer-events: none;			
+	}
+
+
 </style>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -123,6 +134,11 @@
 		var dataNest = d3.nest()
 			.key(function(d) { return d.Country; })
 			.entries(data);
+		
+		var div = d3.select("body").append("div")	
+    .attr("class", "tooltip")				
+    .style("opacity", 0);
+
 
 		dataNest.forEach(function(d) { 
 			svg.append('path')
@@ -132,22 +148,37 @@
 			.on('mouseover', function(){
 				d3.selectAll('#' + String(RemoveAccents(d.key)))
 					.transition().duration(100)
-					.style('opacity', 0.8)
-				console.log('.'+ String(RemoveAccents(d.key)))
-				console.log(d)
+					.style('opacity', 0.8);
+				div.transition()
+					.duration(200)
+					.style('opacity', 1);
+				div.html(d.key)
+					.style('left', (d3.event.pageX) + 'px')
+					.style('top', (d3.event.pageY + 28) + 'px');
+
 
 
 			//d.style('opacity', 1);
 			})
 			.on('mouseout', function(){
 				d3.selectAll('#' + String(RemoveAccents(d.key)))
-				.transition().duration(100)
-				.style('opacity', 0.2)
+					.transition().duration(100)
+					.style('opacity', 0.2)
+				div.transition()
+					.duration(500)
+					.style('opacity', 0);
+
 			})
 			.on('mousedown', function(){
 				d3.selectAll('#' + String(RemoveAccents(d.key)))
-				.transition().duration(100)
-				.style('opacity', 0.8)
+					.transition().duration(100)
+					.style('opacity', 0.8)
+				div.transition()
+					.duration(200)
+					.style('opacity', 1);
+				div.html(d.key)
+					.style('left', (d3.event.pageX) + 'px')
+					.style('top', (d3.event.pageY + 28) + 'px');
 			})
 		});
 
