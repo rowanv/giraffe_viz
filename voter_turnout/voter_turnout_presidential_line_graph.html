@@ -94,7 +94,7 @@
 		
 		
 		var x = d3.time.scale()
-			.domain([format.parse('1940'), format.parse('2010')])
+			.domain([year_min, year_max])
 			.range([0,width])
 
 		console.log(x);
@@ -131,12 +131,24 @@
 			.attr('d', countryLine(d.values))
 			.on('mouseover', function(){
 				d3.selectAll('#' + String(RemoveAccents(d.key)))
-				.transition().duration(100)
-				.style('opacity', 0.8)
+					.transition().duration(100)
+					.style('opacity', 0.8)
 				console.log('.'+ String(RemoveAccents(d.key)))
+				console.log(d)
+
 
 			//d.style('opacity', 1);
-			});
+			})
+			.on('mouseout', function(){
+				d3.selectAll('#' + String(RemoveAccents(d.key)))
+				.transition().duration(100)
+				.style('opacity', 0.2)
+			})
+			.on('mousedown', function(){
+				d3.selectAll('#' + String(RemoveAccents(d.key)))
+				.transition().duration(100)
+				.style('opacity', 0.8)
+			})
 		});
 
 
