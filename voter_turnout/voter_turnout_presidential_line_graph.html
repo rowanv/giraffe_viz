@@ -6,10 +6,14 @@
       font: 10px sans-serif;
     }
 
+    .title {
+    	font-size: 16px;
+    }
+
     .axis path,
     .axis line {
       fill: none;
-      stroke: #000;
+      stroke: #d3d3d3;
       shape-rendering: crispEdges;
     }
 
@@ -17,15 +21,21 @@
       display: none;
     }
 
-    .datapoint {
-      r: 2;
-    }
 
+    #WorldAverageLabel {
+    	padding: 4 px;
+    	fill: white;
+    }
     .line {
       fill: none;
-      stroke: #5aae61;
-      stroke-width: 1.5px;
+      stroke: #5ab4ac;
+      stroke-width: 2px;
       opacity: 0.2;
+    }
+
+    #WorldAverage {
+    	stroke: #d8b365;
+    	opacity: 1;
     }
 
     div.tooltip {	
@@ -64,7 +74,7 @@
 	}
 
 
-	var margin = {top: 20, right: 20, bottom: 30, left: 40},
+	var margin = {top: 40, right: 20, bottom: 30, left: 40},
 		width = 960 - margin.left - margin.right,
 		height = 500 - margin.top - margin.bottom;
 
@@ -82,6 +92,23 @@
 	  	.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
 	var format = d3.time.format('%Y');
+
+	d3.select('svg').append('rect')
+			.attr('x', width - 30 )
+			.attr('y', 210 - 10)
+			.attr('width', 80)
+			.attr('height', 15)
+			.attr('fill', 'white')
+		  .append('text');
+
+	d3.select('svg').append('text')
+			.attr('x', width + 40)
+		  	.attr('y', 210)
+		  	.text('World Average')
+		  	.attr('id', 'worldAverageLabel')
+			.attr('text-anchor', 'end');
+
+
 
 	d3.csv('Voter_Turnout_IDEA_VT_Presidential.csv', function(error, data) {
 
@@ -106,9 +133,11 @@
 		
 		var x = d3.time.scale()
 			.domain([year_min, year_max])
-			.range([0,width])
+			.range([0,width]);
 
-		console.log(x);
+
+
+		/* Axes */
 		
 		var xAxis = d3.svg.axis()
 			.scale(x)
@@ -127,6 +156,33 @@
 			.attr('class', 'y_axis axis')
 			.call(yAxis);
 
+		/* Axis Labels */
+
+		svg.append('text')
+			.attr('class', 'x label')
+			.attr('text-anchor', 'end')
+			.attr('x', width)
+			.attr('y', height - 6)
+			.text('Year');
+
+		svg.append('text')
+			.attr('class', 'y label')
+			.attr('text-anchor', 'end')
+			.attr('x', 2)
+			.attr('y', 14)
+			.attr('transform', 'rotate(-90)')
+			.text('Voter Turnout (%)')
+
+		/* Title */
+		svg.append('text')
+			.attr('class', 'title')
+			.attr('text-anchor', 'middle')
+			.attr('x', width / 2)
+			.attr('y', -20)
+			.text('Presidential Election Voter Turnout by Country Over Time')
+
+		/* World Average label */
+
 		var countryLine = d3.svg.line()
 			.x(function(d) { return x(d.Year); })
 			.y(function(d) { return y(d['Voter Turnout']); });
@@ -136,8 +192,8 @@
 			.entries(data);
 		
 		var div = d3.select("body").append("div")	
-    .attr("class", "tooltip")				
-    .style("opacity", 0);
+    		.attr("class", "tooltip")				
+    		.style("opacity", 0);
 
 
 		dataNest.forEach(function(d) { 
@@ -147,6 +203,7 @@
 			.attr('d', countryLine(d.values))
 			.on('mouseover', function(){
 				d3.selectAll('#' + String(RemoveAccents(d.key)))
+					
 					.transition().duration(100)
 					.style('opacity', 0.8);
 				div.transition()
@@ -156,14 +213,14 @@
 					.style('left', (d3.event.pageX) + 'px')
 					.style('top', (d3.event.pageY + 28) + 'px');
 
-
-
-			//d.style('opacity', 1);
 			})
 			.on('mouseout', function(){
 				d3.selectAll('#' + String(RemoveAccents(d.key)))
 					.transition().duration(100)
-					.style('opacity', 0.2)
+					.style('opacity', function() {
+						console.log(this.id)
+						return (this.id === 'WorldAverage') ? 1.0 : 0.2;
+					})
 				div.transition()
 					.duration(500)
 					.style('opacity', 0);
