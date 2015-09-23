@@ -2,12 +2,12 @@
 <meta charset="utf-8">
 <style>
 
-	body {
+    body {
       font: 10px sans-serif;
     }
 
     .title {
-    	font-size: 16px;
+        font-size: 16px;
     }
 
     .axis path,
@@ -23,8 +23,8 @@
 
 
     #WorldAverageLabel {
-    	padding: 4 px;
-    	fill: white;
+        padding: 4 px;
+        fill: white;
     }
     .line {
       fill: none;
@@ -34,26 +34,26 @@
     }
 
     #WorldAverage {
-    	stroke: #ef8a62;
-    	opacity: 1;
+        stroke: #ef8a62;
+        opacity: 1;
     }
 
-    div.tooltip {	
-	    position: absolute;			
-	    text-align: center;					
-	    padding: 4px;			
-	    background: white;	
-	    border: 0px;		
-	    border-radius: 8px;			
-	    pointer-events: none;			
-	}
+    div.tooltip {   
+        position: absolute;         
+        text-align: center;                 
+        padding: 4px;           
+        background: white;  
+        border: 0px;        
+        border-radius: 8px;         
+        pointer-events: none;           
+    }
 
-	#sources {
-		color: grey;
-		width: 200px;
-		text-align: justify;
-		float: right;
-	}
+    #sources {
+        color: grey;
+        width: 200px;
+        text-align: justify;
+        float: right;
+    }
  
 
 </style>
@@ -62,208 +62,242 @@
 
 <script>
 
-	function RemoveAccents(strAccents) {
-		var strAccents = strAccents.split('');
-		var strAccentsOut = new Array();
-		var strAccentsLen = strAccents.length;
-		var accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
-		var accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
-		for (var y = 0; y < strAccentsLen; y++) {
-			if (accents.indexOf(strAccents[y]) != -1) {
-				strAccentsOut[y] = accentsOut.substr(accents.indexOf(strAccents[y]), 1);
-			} else
-				strAccentsOut[y] = strAccents[y];
-		}
-		strAccentsOut = strAccentsOut.join('');
-		strAccentsOut = strAccentsOut.replace(/[.,-\/#!$%\^&\'*;:{1234567890}=\-_`~()]/g,"")
-		strAccentsOut = strAccentsOut.replace(/\s+/g, '')
-		return strAccentsOut;
-	}
+    function RemoveAccents(strAccents) {
+        var strAccents = strAccents.split('');
+        var strAccentsOut = new Array();
+        var strAccentsLen = strAccents.length;
+        var accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+        var accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
+        for (var y = 0; y < strAccentsLen; y++) {
+            if (accents.indexOf(strAccents[y]) != -1) {
+                strAccentsOut[y] = accentsOut.substr(accents.indexOf(strAccents[y]), 1);
+            } else
+                strAccentsOut[y] = strAccents[y];
+        }
+        strAccentsOut = strAccentsOut.join('');
+        strAccentsOut = strAccentsOut.replace(/[.,-\/#!$%\^&\'*;:{1234567890}=\-_`~()]/g,"")
+        strAccentsOut = strAccentsOut.replace(/\s+/g, '')
+        return strAccentsOut;
+    }
 
 
-	var margin = {top: 40, right: 20, bottom: 30, left: 40},
-		width = 960 - margin.left - margin.right,
-		height = 500 - margin.top - margin.bottom;
-
-	
-	var y = d3.scale.linear()
-		.domain([0, 100])
-		.range([height, 0]);
-			
-
-	var svg = d3.select('body').append('svg')
-		.attr('width', width + margin.left + margin.right)
-		.attr('height', height + margin.top + margin.bottom)
-	  .append('g')
-	  	.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-
-	var format = d3.time.format('%Y');
-
-	/* World Average Label */
-	d3.select('svg').append('rect')
-			.attr('x', width - 30 )
-			.attr('y', 210 - 10)
-			.attr('width', 80)
-			.attr('height', 15)
-			.attr('fill', 'white')
-		  .append('text');
-
-	d3.select('svg').append('text')
-			.attr('x', width + 40)
-		  	.attr('y', 210)
-		  	.text('World Average')
-		  	.attr('id', 'worldAverageLabel')
-			.attr('text-anchor', 'end');
-
-	/* Sources Note */
-	d3.select('body').append('p')
-		.attr('x', width - 100 )
-		.attr('y', height + margin.top + margin.bottom)
-		.attr('id', 'sources')
-		.text('Source: International IDEA (Institute for Democracy and Electoral Assistance) Voter Turnout Dataset, available on Sept. 2015 at www.idea.int/vt/index.cfm');
+    function responsivefy(svg) {
+    // get container + svg aspect ratio
+        var container = d3.select(svg.node().parentNode),
+            width = parseInt(svg.style("width")),
+            height = parseInt(svg.style("height")),
+            aspect = width / height;
+        // add viewBox and preserveAspectRatio properties,
+        // and call resize so that svg resizes on inital page load
+        svg.attr("viewBox", "0 0 " + width + " " + height)
+            .attr("perserveAspectRatio", "xMinYMid")
+            .call(resize);
+        // to register multiple listeners for same event type,
+        // you need to add namespace, i.e., 'click.foo'
+        // necessary if you call invoke this function for multiple svgs
+        // api docs: https://github.com/mbostock/d3/wiki/Selections#on
+        d3.select(window).on("resize." + container.attr("id"), resize);
+        // get width of container and resize svg to fit it
+        function resize() {
+          if(parseInt(container.style('width')) < 960) {
+            targetWidth = parseInt(container.style("width")) ;
+            console.log(targetWidth);
+          }
+            else {
+              targetWidth = 960 - margin.left - margin.right;
+            }
+            svg.attr("width", targetWidth);
+            svg.attr("height", Math.round(targetWidth / aspect));
+        }
+    }
 
 
 
-	d3.csv('Voter_Turnout_IDEA_VT_Presidential.csv', function(error, data) {
+    var margin = {top: 40, right: 20, bottom: 30, left: 40},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
 
-		if (error) throw error;
+    
+    var y = d3.scale.linear()
+        .domain([0, 100])
+        .range([height, 0]);
+            
 
-		data.forEach(function(d) { 
-			d.Year = format.parse(d.Year);
-			d['Voter Turnout'] = +d['Voter Turnout']
-		});
+    var svg = d3.select('body').append('svg')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .call(responsivefy)
+      .append('g')
+        .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-		console.log(function(d) { return d.Year });
+    var format = d3.time.format('%Y');
 
-		
-		year_min = d3.min(data, function(d) {
-			return d.Year
-		});
+    /* World Average Label */
+    d3.select('svg').append('rect')
+            .attr('x', width - 30 )
+            .attr('y', 210 - 10)
+            .attr('width', 80)
+            .attr('height', 15)
+            .attr('fill', 'white')
+          .append('text');
 
-		year_max = d3.max(data, function(d) {
-			return d.Year
-		});
-		
-		
-		var x = d3.time.scale()
-			.domain([year_min, year_max])
-			.range([0,width]);
+    d3.select('svg').append('text')
+            .attr('x', width + 40)
+            .attr('y', 210)
+            .text('World Average')
+            .attr('id', 'worldAverageLabel')
+            .attr('text-anchor', 'end');
 
-
-
-		/* Axes */
-		
-		var xAxis = d3.svg.axis()
-			.scale(x)
-			.orient('bottom');
-
-		var yAxis = d3.svg.axis()
-			.scale(y)
-			.orient('left');
-		
-		svg.append('g')
-			.attr('transform', 'translate(0,' + height + ')')
-			.attr('class', 'x_axis axis')
-			.call(xAxis);
-
-		svg.append('g')
-			.attr('class', 'y_axis axis')
-			.call(yAxis);
-
-		/* Axis Labels */
-
-		svg.append('text')
-			.attr('class', 'x label')
-			.attr('text-anchor', 'end')
-			.attr('x', width)
-			.attr('y', height - 6)
-			.text('Year');
-
-		svg.append('text')
-			.attr('class', 'y label')
-			.attr('text-anchor', 'end')
-			.attr('x', 2)
-			.attr('y', 14)
-			.attr('transform', 'rotate(-90)')
-			.text('Voter Turnout (%)')
-
-		/* Title */
-		svg.append('text')
-			.attr('class', 'title')
-			.attr('text-anchor', 'middle')
-			.attr('x', width / 2)
-			.attr('y', -20)
-			.text('Presidential Election Voter Turnout by Country Over Time')
-
-		/* World Average label */
-
-		var countryLine = d3.svg.line()
-			.x(function(d) { return x(d.Year); })
-			.y(function(d) { return y(d['Voter Turnout']); });
-
-		var dataNest = d3.nest()
-			.key(function(d) { return d.Country; })
-			.entries(data);
-		
-		var div = d3.select("body").append("div")	
-    		.attr("class", "tooltip")				
-    		.style("opacity", 0);
-
-
-		dataNest.forEach(function(d) { 
-			svg.append('path')
-			.attr('class', 'line')
-			.attr('id', RemoveAccents(d.key))
-			.attr('d', countryLine(d.values))
-			.on('mouseover', function(){
-				d3.selectAll('#' + String(RemoveAccents(d.key)))
-					
-					.transition().duration(100)
-					.style('opacity', 1)
-					.style('stroke-width', '3.5px');
-
-				div.transition()
-					.duration(200)
-					.style('opacity', 1);
-					
-
-				div.html(d.key)
-					.style('left', (d3.event.pageX) + 'px')
-					.style('top', (d3.event.pageY + 28) + 'px');
-
-			})
-			.on('mouseout', function(){
-				d3.selectAll('#' + String(RemoveAccents(d.key)))
-					.transition().duration(100)
-					.style('opacity', function() {
-						console.log(this.id)
-						return (this.id === 'WorldAverage') ? 1.0 : 0.2;
-					})
-					.style('stroke-width', '2px');
-
-				div.transition()
-					.duration(500)
-					.style('opacity', 0);
-
-			})
-			.on('mousedown', function(){
-				d3.selectAll('#' + String(RemoveAccents(d.key)))
-					.transition().duration(100)
-					.style('opacity', 0.8)
-				div.transition()
-					.duration(200)
-					.style('opacity', 1);
-				div.html(d.key)
-					.style('left', (d3.event.pageX) + 'px')
-					.style('top', (d3.event.pageY + 28) + 'px');
-			})
-		});
+    /* Sources Note */
+    d3.select('body').append('p')
+        .attr('x', width - 100 )
+        .attr('y', height + margin.top + margin.bottom)
+        .attr('id', 'sources')
+        .text('Source: International IDEA (Institute for Democracy and Electoral Assistance) Voter Turnout Dataset, available on Sept. 2015 at www.idea.int/vt/index.cfm');
 
 
 
+    d3.csv('Voter_Turnout_IDEA_VT_Presidential.csv', function(error, data) {
+
+        if (error) throw error;
+
+        data.forEach(function(d) { 
+            d.Year = format.parse(d.Year);
+            d['Voter Turnout'] = +d['Voter Turnout']
+        });
 
 
-		});
+        
+        year_min = d3.min(data, function(d) {
+            return d.Year
+        });
+
+        year_max = d3.max(data, function(d) {
+            return d.Year
+        });
+        
+        
+        var x = d3.time.scale()
+            .domain([year_min, year_max])
+            .range([0,width]);
+
+
+
+        /* Axes */
+        
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient('bottom');
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient('left');
+        
+        svg.append('g')
+            .attr('transform', 'translate(0,' + height + ')')
+            .attr('class', 'x_axis axis')
+            .call(xAxis);
+
+        svg.append('g')
+            .attr('class', 'y_axis axis')
+            .call(yAxis);
+
+        /* Axis Labels */
+
+        svg.append('text')
+            .attr('class', 'x label')
+            .attr('text-anchor', 'end')
+            .attr('x', width)
+            .attr('y', height - 6)
+            .text('Year');
+
+        svg.append('text')
+            .attr('class', 'y label')
+            .attr('text-anchor', 'end')
+            .attr('x', 2)
+            .attr('y', 14)
+            .attr('transform', 'rotate(-90)')
+            .text('Voter Turnout (%)')
+
+        /* Title */
+        svg.append('text')
+            .attr('class', 'title')
+            .attr('text-anchor', 'middle')
+            .attr('x', width / 2)
+            .attr('y', -20)
+            .text('Presidential Election Voter Turnout by Country Over Time')
+
+        /* World Average label */
+
+        var countryLine = d3.svg.line()
+            .x(function(d) { return x(d.Year); })
+            .y(function(d) { return y(d['Voter Turnout']); });
+
+        var dataNest = d3.nest()
+            .key(function(d) { return d.Country; })
+            .entries(data);
+        
+        var div = d3.select("body").append("div")
+            .attr("class", "tooltip")          
+            .style("opacity", 0);
+
+
+        dataNest.forEach(function(d) {
+            svg.append('path')
+            .attr('class', 'line')
+            .attr('id', RemoveAccents(d.key))
+            .attr('d', countryLine(d.values))
+            .on('mouseover', function(){
+                /*On mouseover, make hovered over lines non-opaque and 
+                increase their stroke width, show the tooltip */
+                d3.selectAll('#' + String(RemoveAccents(d.key)))
+                    
+                    .transition().duration(100)
+                    .style('opacity', 1)
+                    .style('stroke-width', '3.5px');
+
+                div.transition()
+                    .duration(200)
+                    .style('opacity', 1);
+                    
+
+                div.html(d.key)
+                    .style('left', (d3.event.pageX) + 'px')
+                    .style('top', (d3.event.pageY + 28) + 'px');
+
+            })
+            .on('mouseout', function(){
+                d3.selectAll('#' + String(RemoveAccents(d.key)))
+                    .transition().duration(100)
+                    .style('opacity', function() {
+                        console.log(this.id)
+                        return (this.id === 'WorldAverage') ? 1.0 : 0.2;
+                    })
+                    .style('stroke-width', '2px');
+
+                div.transition()
+                    .duration(500)
+                    .style('opacity', 0);
+
+            })
+            .on('mousedown', function(){
+                d3.selectAll('#' + String(RemoveAccents(d.key)))
+                    .transition().duration(100)
+                    .style('opacity', 0.8)
+                div.transition()
+                    .duration(200)
+                    .style('opacity', 1);
+                div.html(d.key)
+                    .style('left', (d3.event.pageX) + 'px')
+                    .style('top', (d3.event.pageY + 28) + 'px');
+            })
+        });
+
+
+
+
+
+        });
 </script>
 
 </body>
