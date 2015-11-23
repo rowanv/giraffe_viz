@@ -31,14 +31,10 @@
         <svg class='canvas'></svg>
         <script type="text/javascript">
 
+(function () {
 
-  var width = 420,
-    height = 200;
+  var width = 420, height = 200;
 
-  var coordinates = [];
-  for (var i=0; i < 20; i++){
-    coordinates.push(i);
-  }
   var randomXPosition = function(d){
     return Math.random() * width;
   }
@@ -46,50 +42,65 @@
     return Math.random() * height;
   }
 
+  var dataset = [];
+  var circleBatchSize = 1;
+  var maxCircleCount = 100;
 
+  for (var i=0; i < circleBatchSize; i++){
+    dataset.push({x: randomXPosition(), y: randomYPosition()})
+  }
+
+  var testInterval = null;
+  var reshuffleData = function(){
+    for (var i=0; i<circleBatchSize; i++){
+
+        dataset.push({x: randomXPosition(), y: randomYPosition()})
+
+    }
+    console.log('Reshuffled ' + dataset.length)
+    console.log(dataset)
+
+    if(dataset.length > maxCircleCount) {
+        clearInterval(testInterval);
+    }
+  }
+
+  console.log(dataset);
+
+  var colours = ['#FDBB30', '#EE3124', '#EC008C', '#F47521', '#7AC143', '#00B0DD'];
+  var randomColour = function() {
+    return colours[Math.floor(Math.random() * colours.length)];
+  }
+  //d3.timer(reshuffleData, 0, 5000);
+  testInterval = window.setInterval(reshuffleData, 800);
 
   var canvas = d3.select('.canvas')
       .attr('width', width)
       .attr('height', height)
-      .style('background-color', 'black')
+      .style('background-color', 'black');
 
-    .append('circle')
-      .data(coordinates)
-      .style('r', 50)
-      .style('fill', 'red')
-      .style('cx', randomXPosition)
-      .style('cy', randomYPosition);
-/*
-var x = d3.scale.linear()
-    .range([0, width]);
+  var datasetOldLength = 0;
+  function drawCircles() {
+    if(datasetOldLength === dataset.length ) {
+        return;
+    }
+    datasetOldLength = dataset.length;
+    var circles = canvas.selectAll('circle')
+      .data(dataset)
+      .enter()
+      .append('circle')
+      .style('r', 20)
+      .style('fill', randomColour)
+      .style('cx', function(d) { return d.x} )
+      .style('cy', function(d) { return d.y} );
 
-var chart = d3.select(".chart")
-    .attr("width", width);
+    if(dataset.length > maxCircleCount) {
+        return true;
+    }
+  }
 
-d3.tsv("data_names.tsv", type, function(error, data) {
-  x.domain([0, d3.max(data, function(d) { return d.value; })]);
-
-  chart.attr("height", barHeight * data.length);
-
-  var bar = chart.selectAll("g")
-      .data(data)
-    .enter().append("g")
-      .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
-
-  bar.append("rect")
-      .attr("width", function(d) { return x(d.value); })
-      .attr("height", barHeight - 1);
-
-  bar.append("text")
-      .attr("x", function(d) { return x(d.value) - 3; })
-      .attr("y", barHeight / 2)
-      .attr("dy", ".35em")
-      .text(function(d) { return d.value; });*/
-
-function type(d) {
-  d.value = +d.value; // coerce to number
-  return d;
-}
+  d3.timer(drawCircles, 1000);
+})();
 
         </script>
     </body>
